@@ -1,0 +1,96 @@
+{
+  "scope": "20 preregistered CRACKS audit sections; sealed reserve not accessed",
+  "independence_caveat": "sections are paired observations from one F3 survey and are not independent surveys",
+  "threshold_policy": "all thresholds selected on Thebe val1-val2; no CRACKS calibration",
+  "aggregate": {
+    "U-Net": {
+      "micro_precision": 0.23112665261544357,
+      "micro_recall": 0.05802882398925615,
+      "micro_dice": 0.09276675649607624,
+      "micro_iou": 0.04863943978118133,
+      "macro_tolerant_precision_3px": 0.5101946448000858,
+      "macro_tolerant_recall_3px": 0.2381406126522036,
+      "macro_tolerant_dice_3px": 0.29459864636565347
+    },
+    "Hybrid DSA": {
+      "micro_precision": 0.253200919468142,
+      "micro_recall": 0.3625408406662791,
+      "micro_dice": 0.2981628992693799,
+      "micro_iou": 0.1752006106467974,
+      "macro_tolerant_precision_3px": 0.5173448434582337,
+      "macro_tolerant_recall_3px": 0.6173514308510368,
+      "macro_tolerant_dice_3px": 0.5478252377845966
+    },
+    "SwinUNETR F3-chain": {
+      "micro_precision": 0.35478899952584164,
+      "micro_recall": 0.1319850067149071,
+      "micro_dice": 0.19239658603148074,
+      "micro_iou": 0.10643738806018402,
+      "macro_tolerant_precision_3px": 0.6077589679108443,
+      "macro_tolerant_recall_3px": 0.4210548282926056,
+      "macro_tolerant_dice_3px": 0.4915317980383297
+    }
+  },
+  "paired_section_statistics": {
+    "Hybrid DSA_vs_U-Net": {
+      "dice": {
+        "metric": "dice",
+        "n_paired_sections": 20,
+        "baseline_macro_mean": 0.09002036245854077,
+        "proposed_macro_mean": 0.3044633283830239,
+        "paired_mean_difference": 0.21444296592448325,
+        "bootstrap_95_ci_difference": [
+          0.17608814914057894,
+          0.2531517724963087
+        ],
+        "sections_proposed_better": 20,
+        "wilcoxon_two_sided_p": 1.9073486328125e-06,
+        "sign_test_two_sided_p": 1.9073486328125e-06
+      },
+      "tolerant_dice": {
+        "metric": "tolerant_dice",
+        "n_paired_sections": 20,
+        "baseline_macro_mean": 0.29459864636565347,
+        "proposed_macro_mean": 0.5478252377845966,
+        "paired_mean_difference": 0.25322659141894316,
+        "bootstrap_95_ci_difference": [
+          0.20819996085274162,
+          0.2984184378854342
+        ],
+        "sections_proposed_better": 20,
+        "wilcoxon_two_sided_p": 1.9073486328125e-06,
+        "sign_test_two_sided_p": 1.9073486328125e-06
+      }
+    },
+    "Hybrid DSA_vs_SwinUNETR F3-chain": {
+      "dice": {
+        "metric": "dice",
+        "n_paired_sections": 20,
+        "baseline_macro_mean": 0.19190378244215686,
+        "proposed_macro_mean": 0.3044633283830239,
+        "paired_mean_difference": 0.11255954594086712,
+        "bootstrap_95_ci_difference": [
+          0.07765754543688216,
+          0.14802468588692136
+        ],
+        "sections_proposed_better": 18,
+        "wilcoxon_two_sided_p": 1.33514404296875e-05,
+        "sign_test_two_sided_p": 0.0004024505615234375
+      },
+      "tolerant_dice": {
+        "metric": "tolerant_dice",
+        "n_paired_sections": 20,
+        "baseline_macro_mean": 0.4915317980383297,
+        "proposed_macro_mean": 0.5478252377845966,
+        "paired_mean_difference": 0.056293439746266896,
+        "bootstrap_95_ci_difference": [
+          0.006720887669402128,
+          0.10609831501249213
+        ],
+        "sections_proposed_better": 12,
+        "wilcoxon_two_sided_p": 0.069580078125,
+        "sign_test_two_sided_p": 0.5034446716308594
+      }
+    }
+  }
+}

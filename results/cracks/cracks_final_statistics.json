@@ -1,0 +1,221 @@
+{
+  "protocol": "audit 20 sections used for confirmation; reserve 20 sections opened once after FINAL_PROTOCOL_LOCK.json",
+  "threshold_source": "Thebe val1-val2 only; no CRACKS calibration",
+  "inference_caveat": "all sections belong to one F3 survey",
+  "audit": {
+    "aggregate": {
+      "U-Net": {
+        "n_sections": 20,
+        "micro_precision": 0.23112665261544357,
+        "micro_recall": 0.05802882398925615,
+        "micro_dice": 0.09276675649607624,
+        "macro_exact_dice": 0.09002036245854077,
+        "macro_tolerant_dice_3px": 0.29459864636565347
+      },
+      "Hybrid DSA": {
+        "n_sections": 20,
+        "micro_precision": 0.253200919468142,
+        "micro_recall": 0.3625408406662791,
+        "micro_dice": 0.2981628992693799,
+        "macro_exact_dice": 0.3044633283830239,
+        "macro_tolerant_dice_3px": 0.5478252377845966
+      },
+      "SwinUNETR F3-chain": {
+        "n_sections": 20,
+        "micro_precision": 0.35478899952584164,
+        "micro_recall": 0.1319850067149071,
+        "micro_dice": 0.19239658603148074,
+        "macro_exact_dice": 0.19190378244215686,
+        "macro_tolerant_dice_3px": 0.4915317980383297
+      }
+    },
+    "hybrid_vs_unet": {
+      "dice": {
+        "paired_mean_difference": 0.21444296592448325,
+        "bootstrap_95_ci_difference": [
+          0.17608814914057894,
+          0.2531517724963087
+        ],
+        "sections_proposed_better": 20,
+        "wilcoxon_two_sided_p": 1.9073486328125e-06,
+        "sign_test_two_sided_p": 1.9073486328125e-06
+      },
+      "tolerant_dice": {
+        "paired_mean_difference": 0.25322659141894316,
+        "bootstrap_95_ci_difference": [
+          0.20819996085274162,
+          0.2984184378854342
+        ],
+        "sections_proposed_better": 20,
+        "wilcoxon_two_sided_p": 1.9073486328125e-06,
+        "sign_test_two_sided_p": 1.9073486328125e-06
+      }
+    },
+    "hybrid_vs_swin": {
+      "dice": {
+        "paired_mean_difference": 0.11255954594086712,
+        "bootstrap_95_ci_difference": [
+          0.07765754543688216,
+          0.14802468588692136
+        ],
+        "sections_proposed_better": 18,
+        "wilcoxon_two_sided_p": 1.33514404296875e-05,
+        "sign_test_two_sided_p": 0.0004024505615234375
+      },
+      "tolerant_dice": {
+        "paired_mean_difference": 0.056293439746266896,
+        "bootstrap_95_ci_difference": [
+          0.006720887669402128,
+          0.10609831501249213
+        ],
+        "sections_proposed_better": 12,
+        "wilcoxon_two_sided_p": 0.069580078125,
+        "sign_test_two_sided_p": 0.5034446716308594
+      }
+    }
+  },
+  "reserve_primary": {
+    "aggregate": {
+      "U-Net": {
+        "n_sections": 20,
+        "micro_precision": 0.23025016198106796,
+        "micro_recall": 0.06248552583049568,
+        "micro_dice": 0.09829551396005437,
+        "macro_exact_dice": 0.09526283152185204,
+        "macro_tolerant_dice_3px": 0.3137051646307517
+      },
+      "Hybrid DSA": {
+        "n_sections": 20,
+        "micro_precision": 0.2512629590276949,
+        "micro_recall": 0.3884266684964876,
+        "micro_dice": 0.30513933599152343,
+        "macro_exact_dice": 0.31117219960173603,
+        "macro_tolerant_dice_3px": 0.5620218158716506
+      },
+      "SwinUNETR F3-chain": {
+        "n_sections": 20,
+        "micro_precision": 0.34260054012184143,
+        "micro_recall": 0.14036727937077031,
+        "micro_dice": 0.19914331260571694,
+        "macro_exact_dice": 0.19717726079461245,
+        "macro_tolerant_dice_3px": 0.5125209471110805
+      }
+    },
+    "hybrid_vs_unet": {
+      "dice": {
+        "paired_mean_difference": 0.21590936807988395,
+        "bootstrap_95_ci_difference": [
+          0.17642890575079379,
+          0.2549799826465009
+        ],
+        "sections_proposed_better": 20,
+        "wilcoxon_two_sided_p": 1.9073486328125e-06,
+        "sign_test_two_sided_p": 1.9073486328125e-06
+      },
+      "tolerant_dice": {
+        "paired_mean_difference": 0.2483166512408989,
+        "bootstrap_95_ci_difference": [
+          0.20982073042105262,
+          0.2867680685919343
+        ],
+        "sections_proposed_better": 20,
+        "wilcoxon_two_sided_p": 1.9073486328125e-06,
+        "sign_test_two_sided_p": 1.9073486328125e-06
+      }
+    },
+    "hybrid_vs_swin": {
+      "dice": {
+        "paired_mean_difference": 0.11399493880712352,
+        "bootstrap_95_ci_difference": [
+          0.07862489107347975,
+          0.14955608195282835
+        ],
+        "sections_proposed_better": 19,
+        "wilcoxon_two_sided_p": 3.814697265625e-06,
+        "sign_test_two_sided_p": 4.00543212890625e-05
+      },
+      "tolerant_dice": {
+        "paired_mean_difference": 0.04950086876057009,
+        "bootstrap_95_ci_difference": [
+          0.0005896628055647109,
+          0.09775808150813768
+        ],
+        "sections_proposed_better": 11,
+        "wilcoxon_two_sided_p": 0.0758514404296875,
+        "sign_test_two_sided_p": 0.8238029479980469
+      }
+    }
+  },
+  "combined_descriptive": {
+    "aggregate": {
+      "U-Net": {
+        "n_sections": 40,
+        "micro_precision": 0.23068614135830415,
+        "micro_recall": 0.06018204836527364,
+        "micro_dice": 0.0954601775437697,
+        "macro_exact_dice": 0.0926415969901964,
+        "macro_tolerant_dice_3px": 0.3041519054982026
+      },
+      "Hybrid DSA": {
+        "n_sections": 40,
+        "micro_precision": 0.2522274833966439,
+        "micro_recall": 0.3750473976366451,
+        "micro_dice": 0.30161342059329554,
+        "macro_exact_dice": 0.30781776399238003,
+        "macro_tolerant_dice_3px": 0.5549235268281236
+      },
+      "SwinUNETR F3-chain": {
+        "n_sections": 40,
+        "micro_precision": 0.3486061700207083,
+        "micro_recall": 0.13603484322001413,
+        "micro_dice": 0.19570190878889454,
+        "macro_exact_dice": 0.19454052161838467,
+        "macro_tolerant_dice_3px": 0.5020263725747052
+      }
+    },
+    "hybrid_vs_unet": {
+      "dice": {
+        "paired_mean_difference": 0.2151761670021836,
+        "bootstrap_95_ci_difference": [
+          0.18763881159603896,
+          0.2426706979156062
+        ],
+        "sections_proposed_better": 40,
+        "wilcoxon_two_sided_p": 1.8189894035458565e-12,
+        "sign_test_two_sided_p": 1.8189894035458565e-12
+      },
+      "tolerant_dice": {
+        "paired_mean_difference": 0.25077162132992104,
+        "bootstrap_95_ci_difference": [
+          0.2212124792166425,
+          0.2803676343155736
+        ],
+        "sections_proposed_better": 40,
+        "wilcoxon_two_sided_p": 1.8189894035458565e-12,
+        "sign_test_two_sided_p": 1.8189894035458565e-12
+      }
+    },
+    "hybrid_vs_swin": {
+      "dice": {
+        "paired_mean_difference": 0.11327724237399535,
+        "bootstrap_95_ci_difference": [
+          0.08846540257311035,
+          0.13831193596530197
+        ],
+        "sections_proposed_better": 37,
+        "wilcoxon_two_sided_p": 1.2732925824820995e-10,
+        "sign_test_two_sided_p": 1.946500560734421e-08
+      },
+      "tolerant_dice": {
+        "paired_mean_difference": 0.05289715425341849,
+        "bootstrap_95_ci_difference": [
+          0.017964885530024285,
+          0.08791794447776408
+        ],
+        "sections_proposed_better": 23,
+        "wilcoxon_two_sided_p": 0.009781997654499719,
+        "sign_test_two_sided_p": 0.42959050784338615
+      }
+    }
+  }
+}

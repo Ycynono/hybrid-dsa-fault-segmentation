@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated manuscript and this repository."
+title: "Hybrid DSA for 3D Seismic Fault Segmentation"
+type: software
+version: 1.0.0
+date-released: 2026-06-29
+authors:
+  - family-names: Yang
+    given-names: Chenyu
+  - family-names: Zeng
+    given-names: Zhiwei
+  - family-names: Chen
+    given-names: Jinglin
+  - family-names: Guo
+    given-names: Weimin
+  - family-names: Wei
+    given-names: Meng
+  - family-names: Hu
+    given-names: Jinye
+  - family-names: Ren
+    given-names: Jingchao
+license: MIT
+repository-code: "https://github.com/Ycynono/hybrid-dsa-fault-segmentation"

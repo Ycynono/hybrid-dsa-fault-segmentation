@@ -1,0 +1,14 @@
+{
+  "data_root": "processed_data/synthetic_fault_v2_pilot",
+  "output_dir": "runs/dsa_unet3d_pilot",
+  "model": "dsa_unet3d",
+  "epochs": 2,
+  "batch_size": 1,
+  "base_channels": 8,
+  "lr": 0.001,
+  "seed": 20261101,
+  "num_workers": 0,
+  "use_depthwise": true,
+  "use_attention": true,
+  "use_aspp": true
+}

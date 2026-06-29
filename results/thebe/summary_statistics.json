@@ -1,0 +1,212 @@
+{
+  "analysis_scope": "Frozen Thebe test2-test7; thresholds selected on val1-val2 only",
+  "bootstrap": {
+    "unit": "paired test block",
+    "iterations": 100000,
+    "seed": 20260627
+  },
+  "aggregate": {
+    "U-Net": {
+      "parameter_count": 350809,
+      "n_blocks": 6,
+      "n_crosslines": 603,
+      "micro_precision": 0.0725053758883578,
+      "micro_recall": 0.4530663578646221,
+      "micro_dice": 0.12500575837582287,
+      "macro_block_dice_mean": 0.12493284227380536,
+      "macro_block_dice_std": 0.011649197284525126,
+      "macro_block_tolerant_dice_3px_mean": 0.19343403855514776,
+      "macro_block_tolerant_dice_3px_std": 0.01983913332270034,
+      "total_runtime_seconds": 222.5756662999629,
+      "mean_runtime_seconds_per_block": 37.09594438332715
+    },
+    "Hybrid DSA": {
+      "parameter_count": 104787,
+      "n_blocks": 6,
+      "n_crosslines": 603,
+      "micro_precision": 0.08460107439661856,
+      "micro_recall": 0.5509525705569985,
+      "micro_dice": 0.14667897755224918,
+      "macro_block_dice_mean": 0.14679937157324666,
+      "macro_block_dice_std": 0.007918129953879187,
+      "macro_block_tolerant_dice_3px_mean": 0.22379076607358606,
+      "macro_block_tolerant_dice_3px_std": 0.014083452395634197,
+      "total_runtime_seconds": 1623.1858060999948,
+      "mean_runtime_seconds_per_block": 270.53096768333245
+    },
+    "SwinUNETR F3-chain": {
+      "parameter_count": 4078051,
+      "n_blocks": 6,
+      "n_crosslines": 603,
+      "micro_precision": 0.210969062607619,
+      "micro_recall": 0.39284407838924085,
+      "micro_dice": 0.2745152145311231,
+      "macro_block_dice_mean": 0.2740447905591577,
+      "macro_block_dice_std": 0.011736746602957216,
+      "macro_block_tolerant_dice_3px_mean": 0.4283921722319198,
+      "macro_block_tolerant_dice_3px_std": 0.01161468795862628,
+      "total_runtime_seconds": 806.1348546000081,
+      "mean_runtime_seconds_per_block": 134.35580910000135
+    }
+  },
+  "paired_block_statistics": {
+    "dice": {
+      "metric": "dice",
+      "baseline": "U-Net",
+      "proposed": "Hybrid DSA",
+      "n_independent_blocks": 6,
+      "baseline_mean": 0.12493284227380536,
+      "proposed_mean": 0.14679937157324666,
+      "paired_mean_difference": 0.0218665292994413,
+      "paired_relative_improvement_percent": 17.502626932570838,
+      "bootstrap_95_ci_difference": [
+        0.01555996349260772,
+        0.028024782721647823
+      ],
+      "bootstrap_probability_difference_gt_zero": 1.0,
+      "blocks_proposed_better": 6,
+      "wilcoxon_two_sided_p": 0.03125,
+      "sign_test_two_sided_p": 0.03125
+    },
+    "tolerant_dice_3px": {
+      "metric": "tolerant_dice_3px",
+      "baseline": "U-Net",
+      "proposed": "Hybrid DSA",
+      "n_independent_blocks": 6,
+      "baseline_mean": 0.19343403855514776,
+      "proposed_mean": 0.22379076607358606,
+      "paired_mean_difference": 0.030356727518438306,
+      "paired_relative_improvement_percent": 15.693580998043242,
+      "bootstrap_95_ci_difference": [
+        0.019727957160293148,
+        0.04086048928283236
+      ],
+      "bootstrap_probability_difference_gt_zero": 1.0,
+      "blocks_proposed_better": 6,
+      "wilcoxon_two_sided_p": 0.03125,
+      "sign_test_two_sided_p": 0.03125
+    }
+  },
+  "pairwise_comparisons": {
+    "Hybrid DSA_vs_U-Net": {
+      "dice": {
+        "metric": "dice",
+        "baseline": "U-Net",
+        "proposed": "Hybrid DSA",
+        "n_independent_blocks": 6,
+        "baseline_mean": 0.12493284227380536,
+        "proposed_mean": 0.14679937157324666,
+        "paired_mean_difference": 0.0218665292994413,
+        "paired_relative_improvement_percent": 17.502626932570838,
+        "bootstrap_95_ci_difference": [
+          0.01555996349260772,
+          0.028024782721647823
+        ],
+        "bootstrap_probability_difference_gt_zero": 1.0,
+        "blocks_proposed_better": 6,
+        "wilcoxon_two_sided_p": 0.03125,
+        "sign_test_two_sided_p": 0.03125
+      },
+      "tolerant_dice_3px": {
+        "metric": "tolerant_dice_3px",
+        "baseline": "U-Net",
+        "proposed": "Hybrid DSA",
+        "n_independent_blocks": 6,
+        "baseline_mean": 0.19343403855514776,
+        "proposed_mean": 0.22379076607358606,
+        "paired_mean_difference": 0.030356727518438306,
+        "paired_relative_improvement_percent": 15.693580998043242,
+        "bootstrap_95_ci_difference": [
+          0.019727957160293148,
+          0.0408657400029391
+        ],
+        "bootstrap_probability_difference_gt_zero": 1.0,
+        "blocks_proposed_better": 6,
+        "wilcoxon_two_sided_p": 0.03125,
+        "sign_test_two_sided_p": 0.03125
+      }
+    },
+    "SwinUNETR F3-chain_vs_Hybrid DSA": {
+      "dice": {
+        "metric": "dice",
+        "baseline": "Hybrid DSA",
+        "proposed": "SwinUNETR F3-chain",
+        "n_independent_blocks": 6,
+        "baseline_mean": 0.14679937157324666,
+        "proposed_mean": 0.2740447905591577,
+        "paired_mean_difference": 0.127245418985911,
+        "paired_relative_improvement_percent": 86.67981178817303,
+        "bootstrap_95_ci_difference": [
+          0.1153364066784061,
+          0.14018043790799783
+        ],
+        "bootstrap_probability_difference_gt_zero": 1.0,
+        "blocks_proposed_better": 6,
+        "wilcoxon_two_sided_p": 0.03125,
+        "sign_test_two_sided_p": 0.03125
+      },
+      "tolerant_dice_3px": {
+        "metric": "tolerant_dice_3px",
+        "baseline": "Hybrid DSA",
+        "proposed": "SwinUNETR F3-chain",
+        "n_independent_blocks": 6,
+        "baseline_mean": 0.22379076607358606,
+        "proposed_mean": 0.4283921722319198,
+        "paired_mean_difference": 0.20460140615833375,
+        "paired_relative_improvement_percent": 91.42531202161284,
+        "bootstrap_95_ci_difference": [
+          0.1881106864729525,
+          0.22146296898508544
+        ],
+        "bootstrap_probability_difference_gt_zero": 1.0,
+        "blocks_proposed_better": 6,
+        "wilcoxon_two_sided_p": 0.03125,
+        "sign_test_two_sided_p": 0.03125
+      }
+    },
+    "SwinUNETR F3-chain_vs_U-Net": {
+      "dice": {
+        "metric": "dice",
+        "baseline": "U-Net",
+        "proposed": "SwinUNETR F3-chain",
+        "n_independent_blocks": 6,
+        "baseline_mean": 0.12493284227380536,
+        "proposed_mean": 0.2740447905591577,
+        "paired_mean_difference": 0.14911194828535232,
+        "paired_relative_improvement_percent": 119.35368280388238,
+        "bootstrap_95_ci_difference": [
+          0.1341911999964692,
+          0.16431490958571288
+        ],
+        "bootstrap_probability_difference_gt_zero": 1.0,
+        "blocks_proposed_better": 6,
+        "wilcoxon_two_sided_p": 0.03125,
+        "sign_test_two_sided_p": 0.03125
+      },
+      "tolerant_dice_3px": {
+        "metric": "tolerant_dice_3px",
+        "baseline": "U-Net",
+        "proposed": "SwinUNETR F3-chain",
+        "n_independent_blocks": 6,
+        "baseline_mean": 0.19343403855514776,
+        "proposed_mean": 0.4283921722319198,
+        "paired_mean_difference": 0.23495813367677207,
+        "paired_relative_improvement_percent": 121.46679841448167,
+        "bootstrap_95_ci_difference": [
+          0.216042942221396,
+          0.25431765077558816
+        ],
+        "bootstrap_probability_difference_gt_zero": 1.0,
+        "blocks_proposed_better": 6,
+        "wilcoxon_two_sided_p": 0.03125,
+        "sign_test_two_sided_p": 0.03125
+      }
+    }
+  },
+  "efficiency": {
+    "parameter_reduction_percent": 70.12989974601564,
+    "hybrid_to_unet_runtime_ratio": 7.29273704122015,
+    "swin_to_hybrid_parameter_ratio": 38.91752793762585,
+    "swin_to_hybrid_runtime_ratio": 0.496637446908741
+  }
+}

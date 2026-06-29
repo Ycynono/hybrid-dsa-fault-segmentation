@@ -1,0 +1,136 @@
+{
+  "opened_utc": "2026-06-27T14:37:52.900852+00:00",
+  "protocol_lock": "FINAL_PROTOCOL_LOCK.json",
+  "reserve_loaded_once": true,
+  "models": {
+    "U-Net": {
+      "model": "U-Net",
+      "threshold": 0.5,
+      "threshold_source": "Thebe val1-val2 only; no CRACKS calibration",
+      "reserve_sections": [
+        13,
+        22,
+        35,
+        43,
+        51,
+        68,
+        108,
+        124,
+        133,
+        167,
+        178,
+        196,
+        204,
+        223,
+        239,
+        251,
+        261,
+        267,
+        284,
+        300
+      ],
+      "combined_certain_and_uncertain_faults": {
+        "micro_precision": 0.23025016198106796,
+        "micro_recall": 0.06248552583049568,
+        "micro_dice": 0.09829551396005437,
+        "micro_iou": 0.05168811173430111,
+        "macro_exact_dice": 0.09526283152185204,
+        "macro_tolerant_dice_3px": 0.3137051646307517
+      },
+      "certain_faults_only": {
+        "micro_precision": 0.061331563393858944,
+        "micro_recall": 0.11430170230311598,
+        "micro_dice": 0.07982886468585768,
+        "micro_iou": 0.04157382809152455,
+        "macro_exact_dice": 0.04868323097651685,
+        "macro_tolerant_dice_3px": 0.08017413558929198
+      }
+    },
+    "Hybrid DSA": {
+      "model": "Hybrid DSA",
+      "threshold": 0.15,
+      "threshold_source": "Thebe val1-val2 only; no CRACKS calibration",
+      "reserve_sections": [
+        13,
+        22,
+        35,
+        43,
+        51,
+        68,
+        108,
+        124,
+        133,
+        167,
+        178,
+        196,
+        204,
+        223,
+        239,
+        251,
+        261,
+        267,
+        284,
+        300
+      ],
+      "combined_certain_and_uncertain_faults": {
+        "micro_precision": 0.2512629590276949,
+        "micro_recall": 0.3884266684964876,
+        "micro_dice": 0.30513933599152343,
+        "micro_iou": 0.18003800694143512,
+        "macro_exact_dice": 0.31117219960173603,
+        "macro_tolerant_dice_3px": 0.5620218158716506
+      },
+      "certain_faults_only": {
+        "micro_precision": 0.02696531960284412,
+        "micro_recall": 0.28626965895034456,
+        "micro_dice": 0.049287936371910944,
+        "micro_iou": 0.025266638419327418,
+        "macro_exact_dice": 0.042562039442971114,
+        "macro_tolerant_dice_3px": 0.06588548500828872
+      }
+    },
+    "SwinUNETR F3-chain": {
+      "model": "SwinUNETR F3-chain",
+      "threshold": 0.4,
+      "threshold_source": "Thebe val1-val2 only; no CRACKS calibration",
+      "reserve_sections": [
+        13,
+        22,
+        35,
+        43,
+        51,
+        68,
+        108,
+        124,
+        133,
+        167,
+        178,
+        196,
+        204,
+        223,
+        239,
+        251,
+        261,
+        267,
+        284,
+        300
+      ],
+      "combined_certain_and_uncertain_faults": {
+        "micro_precision": 0.34260054012184143,
+        "micro_recall": 0.14036727937077031,
+        "micro_dice": 0.19914331260571694,
+        "micro_iou": 0.11058254329713695,
+        "macro_exact_dice": 0.19717726079461245,
+        "macro_tolerant_dice_3px": 0.5125209471110805
+      },
+      "certain_faults_only": {
+        "micro_precision": 0.047407205811543535,
+        "micro_recall": 0.13338634623313894,
+        "micro_dice": 0.06995242802421846,
+        "micro_iou": 0.036243887995262444,
+        "macro_exact_dice": 0.05722840541767386,
+        "macro_tolerant_dice_3px": 0.09975681400349115
+      }
+    }
+  }
+}

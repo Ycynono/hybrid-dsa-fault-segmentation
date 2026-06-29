@@ -1,0 +1,11 @@
+name: hybrid-dsa-fault
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.13
+  - pip
+  - pip:
+      - -r requirements.txt
+

@@ -1,0 +1,499 @@
+{
+  "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+  "test_policy": "test1 exposed for development; test2-test7 reserved for final frozen evaluation",
+  "blocks": [
+    {
+      "id": "train1",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain1.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain1.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.29458522975444795,
+        "clip_high": 0.2922021323442442
+      },
+      "fault_fraction": 0.011228165654662415,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train2",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain2.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain2.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.29541470408439635,
+        "clip_high": 0.3035629028081889
+      },
+      "fault_fraction": 0.011611499418461402,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train3",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain3.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain3.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.30564057886600493,
+        "clip_high": 0.31000448346137977
+      },
+      "fault_fraction": 0.010388716634299749,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train4",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain4.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain4.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.3193277931213379,
+        "clip_high": 0.31667394459247566
+      },
+      "fault_fraction": 0.007328979070759944,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train5",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain5.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain5.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.33166381120681765,
+        "clip_high": 0.3291805714368813
+      },
+      "fault_fraction": 0.007319703560852879,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train6",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain6.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain6.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.35160452127456665,
+        "clip_high": 0.3501884722709647
+      },
+      "fault_fraction": 0.008014585816197725,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train7",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain7.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain7.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.3824631661176682,
+        "clip_high": 0.37156983971595703
+      },
+      "fault_fraction": 0.012704664894788045,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train8",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain8.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain8.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.3815172451734543,
+        "clip_high": 0.3637206590175628
+      },
+      "fault_fraction": 0.012100311616136148,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "train9",
+      "split": "train",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistrain9.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttrain9.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.37804177284240725,
+        "clip_high": 0.3602878320217109
+      },
+      "fault_fraction": 0.013815387220253696,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "val1",
+      "split": "val",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seisval1.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faultval1.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.3937909835577011,
+        "clip_high": 0.38388384938239883
+      },
+      "fault_fraction": 0.016207937868637463,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "val2",
+      "split": "val",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seisval2.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faultval2.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.4016419613361359,
+        "clip_high": 0.3928077149391149
+      },
+      "fault_fraction": 0.018950877309499476,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "test2",
+      "split": "test",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistest2.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttest2.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.41276415407657624,
+        "clip_high": 0.39844561576843107
+      },
+      "fault_fraction": 0.0169188559944802,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "test3",
+      "split": "test",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistest3.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttest3.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.41779172599315645,
+        "clip_high": 0.3999279904365536
+      },
+      "fault_fraction": 0.01733885518274497,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "test4",
+      "split": "test",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistest4.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttest4.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.4135714215040207,
+        "clip_high": 0.3977779400348658
+      },
+      "fault_fraction": 0.017091940084100688,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "test5",
+      "split": "test",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistest5.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttest5.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.41511267960071563,
+        "clip_high": 0.38826589882373697
+      },
+      "fault_fraction": 0.017481648839239118,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "test6",
+      "split": "test",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistest6.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttest6.npz",
+      "shape": [
+        100,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.39836515724658966,
+        "clip_high": 0.3819454765319801
+      },
+      "fault_fraction": 0.01735726271400805,
+      "label_role": "independent expert interpretation; external test only"
+    },
+    {
+      "id": "test7",
+      "split": "test",
+      "dataset": "Thebe Gas Field expert-interpreted fault dataset",
+      "source_seismic": "external_data\\Thebe\\complete\\seistest7.npz",
+      "source_fault": "external_data\\Thebe\\complete\\faulttest7.npz",
+      "shape": [
+        103,
+        3174,
+        1537
+      ],
+      "axis_order_from_dataset": [
+        "crossline_chunk",
+        "inline",
+        "sample"
+      ],
+      "normalization": {
+        "method": "sampled 1st/99th percentile clipping mapped to [-1,1]",
+        "sample_stride": [
+          1,
+          16,
+          8
+        ],
+        "clip_low": -0.37635705471038816,
+        "clip_high": 0.338486576080321
+      },
+      "fault_fraction": 0.014461474711165805,
+      "label_role": "independent expert interpretation; external test only"
+    }
+  ]
+}

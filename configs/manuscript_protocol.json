@@ -1,0 +1,36 @@
+{
+  "seed": 20261101,
+  "patch_shape": [128, 128, 128],
+  "inference_stride": [64, 64, 64],
+  "synthetic": {
+    "samples": 400,
+    "train": 300,
+    "validation": 50,
+    "test": 50,
+    "epochs": 50,
+    "batch_size": 1,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.00001,
+    "loss": "0.4 focal + 0.6 Tversky"
+  },
+  "f3_adaptation": {
+    "epochs": 8,
+    "learning_rate": 0.0001,
+    "synthetic_replay_weight": 0.35
+  },
+  "thebe_adaptation": {
+    "epochs": 8,
+    "learning_rate": 0.00005,
+    "train_patches_per_epoch": 160,
+    "validation_patches_per_epoch": 120,
+    "synthetic_replay_weight": 0.2
+  },
+  "models": {
+    "unet3d": {"base_channels": 8, "parameters": 350809, "threshold": 0.5},
+    "hybrid_dsa": {"base_channels": 8, "parameters": 104787, "threshold": 0.15},
+    "swinunetr": {"feature_size": 12, "parameters": 4078051, "threshold": 0.4}
+  },
+  "threshold_source": "Thebe val1-val2 only",
+  "frozen_thebe_test_blocks": ["test2", "test3", "test4", "test5", "test6", "test7"]
+}

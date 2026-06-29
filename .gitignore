@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+processed_data/
+external_data/
+runs/
+*.npy
+*.npz
+*.sgy
+*.segy
+*.cbvs
+*.zip
+*.tar*
+*.log
+

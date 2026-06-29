@@ -1,0 +1,96 @@
+{
+  "created_utc": "2026-06-27T14:40:55.142086+00:00",
+  "environment": {
+    "python": "3.13.9",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "torch": "2.11.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5080",
+    "monai": "1.5.2",
+    "einops": "0.8.2",
+    "matplotlib": "3.10.8",
+    "pillow": "12.0.0",
+    "scikit_image": "0.25.2",
+    "pyvista": "0.46.4"
+  },
+  "fixed_thresholds": {
+    "U-Net": 0.5,
+    "Hybrid DSA": 0.15,
+    "SwinUNETR F3-chain": 0.4,
+    "selection_source": "Thebe val1-val2 only"
+  },
+  "data_policy": {
+    "thebe": "train1-train9 train; val1-val2 selection; test1 exposed pilot; test2-test7 frozen evaluation",
+    "cracks": "20 preregistered audit sections evaluated; 20 reserve sections opened once after final protocol lock",
+    "cracks_reserve_opened": true
+  },
+  "files": [
+    {
+      "path": "runs/thebe_adaptation/unet3d_e8/best.pt",
+      "bytes": 1433513,
+      "sha256": "683daa60d2f52fdec9d670f87ee30a93d6f5c1ac283a02a7ed82120c34056b78"
+    },
+    {
+      "path": "runs/thebe_adaptation/dsa_hybrid_replay_e8/best.pt",
+      "bytes": 485529,
+      "sha256": "b198f00f7bb5a6472aaa296f325e37eb5e5ef33841f446693eb2dcc04d3745e9"
+    },
+    {
+      "path": "runs/thebe_adaptation/swin_unetr_f3chain_e8/best.pt",
+      "bytes": 23901458,
+      "sha256": "63c2bc0f56972fe9fc4c275183e06f1f6e4bb4430050210f72ca5e0284ea61e2"
+    },
+    {
+      "path": "runs/baselines/swin_unetr_synthetic_e50/best.pt",
+      "bytes": 23901330,
+      "sha256": "51c5f6f037311b1d271dafc1a1e07a15c9f93e6df267b1990bf059c4cd16f27f"
+    },
+    {
+      "path": "runs/thebe_final_test2_7/statistics/summary_statistics.json",
+      "bytes": 7867,
+      "sha256": "097d029b7ca755d6ae27897dbf7b35812993d5217948a892a1c0197be2fb2bfe"
+    },
+    {
+      "path": "runs/cracks_audit_frozen/audit_statistics.json",
+      "bytes": 3639,
+      "sha256": "60bfff636b31fe9485cefa7f07e97b153273d119018a47d0dbb6c83a8dc58281"
+    },
+    {
+      "path": "runs/cracks_reserve_final/reserve_results.json",
+      "bytes": 3605,
+      "sha256": "6035aa164371f7b8e06db2c8ffc01a2760c25bf6f281acb877e76939037339cf"
+    },
+    {
+      "path": "runs/cracks_final_statistics.json",
+      "bytes": 7585,
+      "sha256": "8e71d6e449568c3be60c5789068881e8f480f65477ead80f78d0d021f9c02b22"
+    },
+    {
+      "path": "FINAL_PROTOCOL_LOCK.json",
+      "bytes": 1451,
+      "sha256": "09c108961d6b3162d9b95d80fd287db0cf44c7043996ada0bb7fd3921f947072"
+    },
+    {
+      "path": "processed_data/thebe_official/manifest.json",
+      "bytes": 14867,
+      "sha256": "a8f311cfe867748959719feb148b5635dc8afd8d2ca2711de18b54339ebed164"
+    },
+    {
+      "path": "processed_data/cracks_external_v1/expert_split.json",
+      "bytes": 1100,
+      "sha256": "baa78d7391b053738470e8953a5ab748088f79655604c2b3297ce4e5a3228bc6"
+    },
+    {
+      "path": "external_data/CRACKS/Fault segmentations.zip",
+      "bytes": 20227782,
+      "sha256": "0fe732ae946ab37534567326aeac1aa0756e67e3e1ac12ffdff052174c28f659"
+    },
+    {
+      "path": "external_data/CRACKS/images.zip",
+      "bytes": 94191832,
+      "sha256": "6d05fe77f7ae56bac3ee56a06babf138701dae2cc9d8f539b2ec9f97ff1a9055"
+    }
+  ]
+}
