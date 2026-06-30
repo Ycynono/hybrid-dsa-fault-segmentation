@@ -1,0 +1,77 @@
+{
+  "purpose": "Distinguish reported observational units from independent survey clusters",
+  "expert_labelled_survey_clusters": 2,
+  "unlabelled_external_stress_test_clusters": 2,
+  "survey_level_confidence_interval_estimable": false,
+  "reason": "Only two expert-labelled survey clusters are available and they have different adaptation and annotation roles; block/section resampling cannot estimate broad between-survey variance.",
+  "permitted_claims": [
+    "within-Thebe paired block comparison",
+    "within-CRACKS paired section comparison under the sealed protocol",
+    "descriptive model failure on fixed FORCE and Delft ROIs"
+  ],
+  "claims_not_supported": [
+    "population-level geological generalization",
+    "survey-independent accuracy",
+    "accuracy on FORCE or Delft"
+  ],
+  "evidence_units": [
+    {
+      "dataset": "Thebe",
+      "survey_cluster": "Exmouth Plateau, northwest Australia",
+      "role": "dense field adaptation, validation selection, and spatially held-out frozen test",
+      "label_status": "expert-labelled 3D blocks",
+      "reported_units": 6,
+      "unit_type": "spatial test block",
+      "independent_survey_clusters": 1,
+      "supports_within_survey_inference": true,
+      "supports_between_survey_generalization": false
+    },
+    {
+      "dataset": "CRACKS reserve",
+      "survey_cluster": "F3, Dutch North Sea",
+      "role": "sealed external annotation-domain reserve",
+      "label_status": "independent expert section labels",
+      "reported_units": 20,
+      "unit_type": "2D section",
+      "independent_survey_clusters": 1,
+      "supports_within_survey_inference": true,
+      "supports_between_survey_generalization": false
+    },
+    {
+      "dataset": "FORCE",
+      "survey_cluster": "Ichthys, northwest Australia",
+      "role": "frozen survey-domain stress test",
+      "label_status": "no independent expert labels",
+      "reported_units": 1,
+      "unit_type": "fixed ROI",
+      "independent_survey_clusters": 1,
+      "supports_within_survey_inference": false,
+      "supports_between_survey_generalization": false
+    },
+    {
+      "dataset": "Delft",
+      "survey_cluster": "West Netherlands Basin",
+      "role": "frozen survey-domain stress test with algorithmic TFL comparator",
+      "label_status": "no independent expert labels; TFL is not ground truth",
+      "reported_units": 1,
+      "unit_type": "fixed ROI",
+      "independent_survey_clusters": 1,
+      "supports_within_survey_inference": false,
+      "supports_between_survey_generalization": false
+    }
+  ],
+  "within_survey_descriptive_checks": {
+    "Thebe_Hybrid_minus_UNet_exact_Dice": {
+      "mean": 0.0218665292994413,
+      "minimum": 0.010095433707122264,
+      "maximum": 0.03108569753575556,
+      "positive_blocks": 6,
+      "n_blocks": 6
+    },
+    "CRACKS_reserve_macro_exact_Dice": {
+      "U-Net": 0.09526283152185204,
+      "Hybrid DSA": 0.31117219960173603,
+      "SwinUNETR": 0.19717726079461245
+    }
+  }
+}

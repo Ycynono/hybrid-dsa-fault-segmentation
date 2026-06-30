@@ -63,10 +63,27 @@ python -m fault_experiments.run_delft_frozen_external
 
 The TFL volume is an algorithmic attribute, not an independent interpretation. Its overlap with network masks must be reported as attribute agreement only.
 
+## Smeaheia GN1101 candidate audit
+
+- Official source: CO2DataShare, DOI `10.11582/2021.00012`.
+- Required components: `Fault sticks`, `Reports`, and `Seismic 3D surveys`.
+- Interpretation survey: GN1101. The provider states that TNE01 was not used for the feasibility-study interpretation.
+- Fault format: Petrel ASCII; seismic format: SEG-Y.
+- License: Smeaheia Dataset License, based on CC BY 4.0 with a no-sale condition. Attribute Gassnova and Equinor and link the license when sharing derived material.
+- Local source directory: `external_data/smeaheia/`.
+
+The official download form records country/territory and institution. The script requires these as command-line arguments and never places them in source control:
+
+```bash
+python scripts/download_smeaheia.py fault_sticks reports seismic_3d --country "<country>" --affiliation "<institution>"
+```
+
+This dataset is preregistered as an independent sparse 3D expert audit, not dense voxel truth. Before evaluation, all gates in `protocol/SMEAHEIA_VALIDATION_PROTOCOL.md` must pass. In particular, Petrel X/Y/Z picks must register to GN1101 trace headers and vertical coordinates, and voxels outside expert-stick corridors must be ignored.
+
 ## Integrity rules
 
 1. Never tune on Thebe test2-test7 or either CRACKS partition.
 2. Keep the three frozen thresholds unchanged for all external evaluations.
 3. Do not redistribute provider data in forks or releases.
 4. Retain generated manifests, checkpoint hashes, and command logs with every reproduced run.
-
+5. Do not report Smeaheia metrics unless its horizontal and vertical registration gates pass.

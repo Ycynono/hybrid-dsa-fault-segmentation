@@ -1,0 +1,23 @@
+{
+  "method": "locally dip-steered normalized trace coherence discontinuity",
+  "score_definition": "1 - mean best absolute local cosine correlation to +/-crossline and +/-inline neighbors over the allowed sample shifts",
+  "sample_window": 9,
+  "smoothing_sigma_inline_sample": 1.0,
+  "maximum_sample_shift_for_local_dip_steering": 1,
+  "selection_data": "Thebe val1-val2 only",
+  "selected_threshold": 0.019999999552965164,
+  "selected_validation_metrics": {
+    "threshold": 0.019999999552965164,
+    "precision": 0.018313412966758553,
+    "recall": 0.9550817659271421,
+    "dice": 0.03593773048335853,
+    "tp": 16381572,
+    "fp": 878130665,
+    "fn": 770438
+  },
+  "block_runtime_seconds": {
+    "val1": 129.24696070002392,
+    "val2": 132.97699830000056
+  },
+  "total_runtime_seconds": 262.2253856000025
+}

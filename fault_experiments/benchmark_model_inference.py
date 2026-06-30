@@ -10,9 +10,9 @@ from fault_experiments.infer_real_volume import load_model
 
 ROOT = Path(__file__).resolve().parents[1]
 CHECKPOINTS = {
-    "U-Net": ROOT / "checkpoints/unet3d_thebe_e8.pt",
-    "Hybrid DSA": ROOT / "checkpoints/hybrid_dsa_thebe_e8.pt",
-    "SwinUNETR": ROOT / "checkpoints/swinunetr_f3chain_thebe_e8.pt",
+    "U-Net": ROOT / "runs/thebe_adaptation/unet3d_e8/best.pt",
+    "Hybrid DSA": ROOT / "runs/thebe_adaptation/dsa_hybrid_replay_e8/best.pt",
+    "SwinUNETR": ROOT / "runs/thebe_adaptation/swin_unetr_f3chain_e8/best.pt",
 }
 
 
@@ -35,8 +35,36 @@ def benchmark(model, tensor, warmup, repeats):
         "median_ms": float(np.median(timings)),
         "mean_ms": float(np.mean(timings)),
         "std_ms": float(np.std(timings, ddof=1)),
+        "throughput_patches_per_second": float(1000.0 / np.median(timings)),
         "peak_memory_gib": torch.cuda.max_memory_allocated() / 2**30,
     }
+
+
+def module_macs_lower_bound(model, tensor):
+    total = 0
+    handles = []
+
+    def convolution_hook(module, inputs, output):
+        nonlocal total
+        kernel = int(np.prod(module.kernel_size))
+        macs_per_output = module.in_channels // module.groups * kernel
+        total += int(output.numel()) * macs_per_output
+
+    def linear_hook(module, inputs, output):
+        nonlocal total
+        total += int(output.numel()) * int(module.in_features)
+
+    for module in model.modules():
+        if isinstance(module, (torch.nn.Conv3d, torch.nn.ConvTranspose3d)):
+            handles.append(module.register_forward_hook(convolution_hook))
+        elif isinstance(module, torch.nn.Linear):
+            handles.append(module.register_forward_hook(linear_hook))
+    with torch.inference_mode():
+        model(tensor)
+        torch.cuda.synchronize()
+    for handle in handles:
+        handle.remove()
+    return total
 
 
 class CudaGraphWrapper:
@@ -80,6 +108,7 @@ def main():
         torch.cuda.empty_cache()
         model, _ = load_model(CHECKPOINTS[name], device)
         parameter_count = sum(parameter.numel() for parameter in model.parameters())
+        macs_lower_bound = module_macs_lower_bound(model, tensor)
         execution = "eager"
         if args.compile:
             model = torch.compile(model, mode="reduce-overhead", fullgraph=False)
@@ -94,6 +123,9 @@ def main():
             "parameter_count": parameter_count,
             "patch_shape": [128, 128, 128],
             "dtype": "float32",
+            "module_macs_lower_bound_per_patch": macs_lower_bound,
+            "module_gmacs_lower_bound_per_patch": macs_lower_bound / 1e9,
+            "mac_note": "Counts Conv3d, ConvTranspose3d and Linear multiply-accumulates. It excludes normalization, activation, interpolation and explicit attention matrix products, so it is a lower bound, especially for SwinUNETR.",
             **metrics,
         }
         results.append(row)

@@ -1,0 +1,59 @@
+[
+  {
+    "model": "U-Net",
+    "execution": "eager",
+    "parameter_count": 350809,
+    "patch_shape": [
+      128,
+      128,
+      128
+    ],
+    "dtype": "float32",
+    "module_macs_lower_bound_per_patch": 31633440768,
+    "module_gmacs_lower_bound_per_patch": 31.633440768,
+    "mac_note": "Counts Conv3d, ConvTranspose3d and Linear multiply-accumulates. It excludes normalization, activation, interpolation and explicit attention matrix products, so it is a lower bound, especially for SwinUNETR.",
+    "median_ms": 15.402608394622803,
+    "mean_ms": 15.431192111968993,
+    "std_ms": 0.24423385364099925,
+    "throughput_patches_per_second": 64.92406833826338,
+    "peak_memory_gib": 0.5492053031921387
+  },
+  {
+    "model": "Hybrid DSA",
+    "execution": "eager",
+    "parameter_count": 104787,
+    "patch_shape": [
+      128,
+      128,
+      128
+    ],
+    "dtype": "float32",
+    "module_macs_lower_bound_per_patch": 31077888064,
+    "module_gmacs_lower_bound_per_patch": 31.077888064,
+    "mac_note": "Counts Conv3d, ConvTranspose3d and Linear multiply-accumulates. It excludes normalization, activation, interpolation and explicit attention matrix products, so it is a lower bound, especially for SwinUNETR.",
+    "median_ms": 239.37665557861328,
+    "mean_ms": 238.19830398559571,
+    "std_ms": 10.477637802901935,
+    "throughput_patches_per_second": 4.177516799133287,
+    "peak_memory_gib": 0.6117997169494629
+  },
+  {
+    "model": "SwinUNETR",
+    "execution": "eager",
+    "parameter_count": 4078051,
+    "patch_shape": [
+      128,
+      128,
+      128
+    ],
+    "dtype": "float32",
+    "module_macs_lower_bound_per_patch": 49331280384,
+    "module_gmacs_lower_bound_per_patch": 49.331280384,
+    "mac_note": "Counts Conv3d, ConvTranspose3d and Linear multiply-accumulates. It excludes normalization, activation, interpolation and explicit attention matrix products, so it is a lower bound, especially for SwinUNETR.",
+    "median_ms": 94.69307327270508,
+    "mean_ms": 94.98487586975098,
+    "std_ms": 0.8710019215045377,
+    "throughput_patches_per_second": 10.560434522175829,
+    "peak_memory_gib": 3.2740182876586914
+  }
+]

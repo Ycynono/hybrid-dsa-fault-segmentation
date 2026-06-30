@@ -1,5 +1,7 @@
 import argparse
 import json
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -110,6 +112,8 @@ def main():
     parser.add_argument("--seed", type=int, default=20261101)
     parser.add_argument("--amp", action="store_true")
     args = parser.parse_args()
+    training_started_at = datetime.now(timezone.utc).isoformat()
+    training_started = time.perf_counter()
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
     output_dir = Path(args.output_dir)
@@ -151,6 +155,7 @@ def main():
     history = []
     best_dice = -1.0
     for epoch in range(1, args.epochs + 1):
+        epoch_started = time.perf_counter()
         train_metrics = train_epoch(
             model,
             train_loader,
@@ -162,7 +167,13 @@ def main():
             scaler=scaler,
         )
         val_best, val_sweep = validate(model, val_loader, device, thresholds, amp=args.amp)
-        row = {"epoch": epoch, "train": train_metrics, "val": val_best, "val_sweep": val_sweep}
+        row = {
+            "epoch": epoch,
+            "duration_seconds": time.perf_counter() - epoch_started,
+            "train": train_metrics,
+            "val": val_best,
+            "val_sweep": val_sweep,
+        }
         history.append(row)
         print(json.dumps({"epoch": epoch, "train": train_metrics, "val": val_best}), flush=True)
         if val_best["dice"] > best_dice:
@@ -186,6 +197,12 @@ def main():
         "val_summary": val_set.summary(),
         "test2_test7_accessed": False,
         "selection_metric": "official Thebe val micro Dice",
+        "timing": {
+            "started_at_utc": training_started_at,
+            "ended_at_utc": datetime.now(timezone.utc).isoformat(),
+            "wall_clock_seconds": time.perf_counter() - training_started,
+            "hardware": str(torch.cuda.get_device_name(0)) if device.type == "cuda" else "CPU",
+        },
     }
     (output_dir / "config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
     (output_dir / "history.json").write_text(json.dumps(history, indent=2), encoding="utf-8")

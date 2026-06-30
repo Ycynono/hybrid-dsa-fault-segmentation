@@ -1,0 +1,206 @@
+{
+  "survey": "Thebe test4",
+  "evidence_role": "expert-labeled three-dimensional field validation",
+  "roi": {
+    "crossline": [
+      0,
+      100
+    ],
+    "inline": [
+      1400,
+      1800
+    ],
+    "sample": [
+      700,
+      1100
+    ]
+  },
+  "rendering_only": "Frozen binary masks are thinned independently on each crossline section, max-pooled to the display grid, and components smaller than six display voxels are omitted. No metric uses this display processing.",
+  "figure": "runs\\thebe_final_test2_7\\statistics\\figures\\three_dimensional\\test4_true_3d_fault_surfaces.png",
+  "panels": {
+    "Expert interpretation": {
+      "display_grid_shape": [
+        100,
+        200,
+        200
+      ],
+      "display_grid_factors": [
+        1,
+        2,
+        2
+      ],
+      "raw_voxel_count": 690680,
+      "raw_volume_fraction": 0.0431675,
+      "display_thinning": {
+        "voxels_before_thinning": 690680,
+        "voxels_after_thinning": 63368,
+        "retained_fraction_after_thinning": 0.09174726356634041,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 63368,
+        "voxels_after_max_block_reduction": 36025,
+        "block_factors": [
+          1,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 3,
+        "components_after": 3,
+        "voxels_before": 36025,
+        "voxels_after": 36025,
+        "retained_fraction": 1.0,
+        "minimum_component_voxels_on_display_grid": 6
+      },
+      "mesh": {
+        "faces_before": 262240,
+        "faces_after": 180000,
+        "retained_face_fraction_after_decimation": 0.6863941427699817,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\thebe_final_test2_7\\statistics\\figures\\three_dimensional\\test4_surface_meshes\\expert_interpretation.vtp"
+    },
+    "U-Net": {
+      "display_grid_shape": [
+        100,
+        200,
+        200
+      ],
+      "display_grid_factors": [
+        1,
+        2,
+        2
+      ],
+      "raw_voxel_count": 1145418,
+      "raw_volume_fraction": 0.071588625,
+      "display_thinning": {
+        "voxels_before_thinning": 1145418,
+        "voxels_after_thinning": 287624,
+        "retained_fraction_after_thinning": 0.2511083290117669,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 287624,
+        "voxels_after_max_block_reduction": 168207,
+        "block_factors": [
+          1,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 1348,
+        "components_after": 362,
+        "voxels_before": 168207,
+        "voxels_after": 166168,
+        "retained_fraction": 0.9878780312353231,
+        "minimum_component_voxels_on_display_grid": 6
+      },
+      "mesh": {
+        "faces_before": 1188362,
+        "faces_after": 603744,
+        "retained_face_fraction_after_decimation": 0.5080472112033202,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\thebe_final_test2_7\\statistics\\figures\\three_dimensional\\test4_surface_meshes\\unet.vtp"
+    },
+    "Hybrid DSA": {
+      "display_grid_shape": [
+        100,
+        200,
+        200
+      ],
+      "display_grid_factors": [
+        1,
+        2,
+        2
+      ],
+      "raw_voxel_count": 1194790,
+      "raw_volume_fraction": 0.074674375,
+      "display_thinning": {
+        "voxels_before_thinning": 1194790,
+        "voxels_after_thinning": 255572,
+        "retained_fraction_after_thinning": 0.21390537249223712,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 255572,
+        "voxels_after_max_block_reduction": 146675,
+        "block_factors": [
+          1,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 953,
+        "components_after": 103,
+        "voxels_before": 146675,
+        "voxels_after": 145381,
+        "retained_fraction": 0.9911777739901142,
+        "minimum_component_voxels_on_display_grid": 6
+      },
+      "mesh": {
+        "faces_before": 1021686,
+        "faces_after": 550134,
+        "retained_face_fraction_after_decimation": 0.5384570210416899,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\thebe_final_test2_7\\statistics\\figures\\three_dimensional\\test4_surface_meshes\\hybrid_dsa.vtp"
+    },
+    "SwinUNETR": {
+      "display_grid_shape": [
+        100,
+        200,
+        200
+      ],
+      "display_grid_factors": [
+        1,
+        2,
+        2
+      ],
+      "raw_voxel_count": 1067357,
+      "raw_volume_fraction": 0.0667098125,
+      "display_thinning": {
+        "voxels_before_thinning": 1067357,
+        "voxels_after_thinning": 234373,
+        "retained_fraction_after_thinning": 0.21958257640133527,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 234373,
+        "voxels_after_max_block_reduction": 134012,
+        "block_factors": [
+          1,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 1300,
+        "components_after": 255,
+        "voxels_before": 134012,
+        "voxels_after": 132256,
+        "retained_fraction": 0.9868966958182849,
+        "minimum_component_voxels_on_display_grid": 6
+      },
+      "mesh": {
+        "faces_before": 942514,
+        "faces_after": 510838,
+        "retained_face_fraction_after_decimation": 0.541995132167798,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\thebe_final_test2_7\\statistics\\figures\\three_dimensional\\test4_surface_meshes\\swinunetr.vtp"
+    }
+  }
+}

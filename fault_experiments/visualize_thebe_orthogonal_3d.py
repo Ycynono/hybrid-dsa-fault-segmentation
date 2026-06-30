@@ -118,6 +118,11 @@ def main():
     parser.add_argument("--inline", type=int, default=900)
     parser.add_argument("--sample", type=int, default=900)
     parser.add_argument("--crossline-exaggeration", type=float, default=4.0)
+    parser.add_argument(
+        "--coherence-run",
+        type=Path,
+        default=ROOT / "runs" / "dip_steered_coherence_baseline",
+    )
     args = parser.parse_args()
 
     data_dir = ROOT / "processed_data" / "thebe_official" / "test" / args.block
@@ -155,13 +160,21 @@ def main():
             ),
         )
     ]
-    coherence_path = ROOT / "runs" / "coherence_baseline" / args.block / "orthogonal_attribute_planes.npz"
+    coherence_path = args.coherence_run / args.block / "orthogonal_attribute_planes.npz"
     if coherence_path.exists():
+        calibration_path = args.coherence_run / "calibration.json"
+        coherence_threshold = 0.02
+        if calibration_path.exists():
+            coherence_threshold = float(
+                json.loads(calibration_path.read_text(encoding="utf-8"))[
+                    "selected_threshold"
+                ]
+            )
         coherence = np.load(coherence_path)
         panels.append(
             (
-                "Local coherence discontinuity",
-                0.04,
+                "Locally dip-steered coherence",
+                coherence_threshold,
                 {
                     "crossline": np.asarray(
                         coherence["crossline"][inline_slice, sample_slice], dtype=np.float32
@@ -302,10 +315,9 @@ def main():
             "sample": args.sample,
         },
         "thresholds": {
-            "Local coherence discontinuity": 0.04,
-            "U-Net": 0.50,
-            "Hybrid DSA": 0.15,
-            "SwinUNETR": 0.40,
+            name: float(threshold)
+            for name, threshold, _ in panels
+            if name != "Expert interpretation"
         },
         "threshold_source": "Thebe val1-val2 only",
         "point_counts_on_three_planes": point_counts,

@@ -1,5 +1,7 @@
 import argparse
 import json
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -200,6 +202,8 @@ def main():
     parser.add_argument("--replay-weight", type=float, default=0.35)
     parser.add_argument("--amp", action="store_true")
     args = parser.parse_args()
+    training_started_at = datetime.now(timezone.utc).isoformat()
+    training_started = time.perf_counter()
 
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
@@ -253,6 +257,7 @@ def main():
     history = []
     best_val_loss = float("inf")
     for epoch in range(1, args.epochs + 1):
+        epoch_started = time.perf_counter()
         if synthetic_loader is None:
             train_loss = run_epoch(
                 model, train_loader, device, optimizer, amp=args.amp, scaler=scaler
@@ -273,6 +278,7 @@ def main():
         val_loss = run_epoch(model, val_loader, device, amp=args.amp)
         row = {
             "epoch": epoch,
+            "duration_seconds": time.perf_counter() - epoch_started,
             "train_loss": train_loss,
             "synthetic_replay_loss": synthetic_replay_loss,
             "val_loss": val_loss,
@@ -322,6 +328,12 @@ def main():
         "folded_depthwise_weights": converted_weights,
         "synthetic_replay_root": args.synthetic_replay_root,
         "replay_weight": args.replay_weight if args.synthetic_replay_root else None,
+        "timing": {
+            "started_at_utc": training_started_at,
+            "ended_at_utc": datetime.now(timezone.utc).isoformat(),
+            "wall_clock_seconds": time.perf_counter() - training_started,
+            "hardware": str(torch.cuda.get_device_name(0)) if device.type == "cuda" else "CPU",
+        },
     }
     (output_dir / "config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
     (output_dir / "history.json").write_text(json.dumps(history, indent=2), encoding="utf-8")

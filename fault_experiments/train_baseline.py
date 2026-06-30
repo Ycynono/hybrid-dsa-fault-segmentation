@@ -1,5 +1,7 @@
 import argparse
 import json
+import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 import torch
@@ -96,6 +98,8 @@ def main():
     parser.add_argument("--seed", type=int, default=20261101)
     parser.add_argument("--num-workers", type=int, default=0)
     args = parser.parse_args()
+    training_started_at = datetime.now(timezone.utc).isoformat()
+    training_started = time.perf_counter()
 
     set_seed(args.seed)
     output_dir = Path(args.output_dir)
@@ -137,6 +141,7 @@ def main():
     epochs_without_improvement = 0
     thresholds = [float(v) for v in args.thresholds.split(",")]
     for epoch in range(1, args.epochs + 1):
+        epoch_started = time.perf_counter()
         train_metrics = run_epoch(
             model, train_loader, loss_fn, device, optimizer, amp=args.amp, scaler=scaler
         )
@@ -145,6 +150,7 @@ def main():
         )
         row = {
             "epoch": epoch,
+            "duration_seconds": time.perf_counter() - epoch_started,
             "train": train_metrics,
             "val": val_metrics,
             "val_threshold_sweep": threshold_rows,
@@ -171,8 +177,17 @@ def main():
             print(f"Early stopping at epoch {epoch}; best val dice={best_dice:.6f}")
             break
 
+    config = {
+        **vars(args),
+        "timing": {
+            "started_at_utc": training_started_at,
+            "ended_at_utc": datetime.now(timezone.utc).isoformat(),
+            "wall_clock_seconds": time.perf_counter() - training_started,
+            "hardware": str(torch.cuda.get_device_name(0)) if device.type == "cuda" else "CPU",
+        },
+    }
     (output_dir / "history.json").write_text(json.dumps(history, indent=2), encoding="utf-8")
-    (output_dir / "config.json").write_text(json.dumps(vars(args), indent=2), encoding="utf-8")
+    (output_dir / "config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
 
 
 if __name__ == "__main__":

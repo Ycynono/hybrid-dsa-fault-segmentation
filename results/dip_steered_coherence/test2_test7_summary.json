@@ -1,0 +1,12 @@
+{
+  "method": "dip_steered_coherence_discontinuity",
+  "n_blocks": 6,
+  "threshold": 0.019999999552965164,
+  "threshold_source": "Thebe val1-val2 only",
+  "maximum_sample_shift_for_local_dip_steering": 1,
+  "macro_block_exact_dice": 0.0342027665755452,
+  "macro_block_tolerant_dice_3px": 0.05722851472306754,
+  "macro_block_precision": 0.017414783795858656,
+  "macro_block_recall": 0.9548932901316481,
+  "total_runtime_seconds": 648.5291348000173
+}

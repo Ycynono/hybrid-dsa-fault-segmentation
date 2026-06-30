@@ -1,0 +1,208 @@
+{
+  "survey": "Delft fixed centre ROI",
+  "evidence_role": "label-free three-dimensional cross-survey stress test with TFL comparator",
+  "display_subroi_within_frozen_inference_roi": {
+    "inline_index": [
+      96,
+      288
+    ],
+    "crossline_index": [
+      96,
+      288
+    ],
+    "sample_index": [
+      0,
+      128
+    ],
+    "selection_policy": "geometric centre in both lateral directions; full time interval"
+  },
+  "tfl_threshold": 0.2,
+  "rendering_only": "Frozen binary masks in the geometric-centre display sub-ROI are thinned independently on each inline section, max-pooled to the display grid, and components smaller than four display voxels are omitted. Full-ROI occupancy remains the reported quantitative descriptor; no accuracy is inferred from TFL and no metric uses this display processing.",
+  "figure": "runs\\delft_frozen_external\\figures\\delft_true_3d_fault_surfaces.png",
+  "panels": {
+    "Traditional TFL": {
+      "display_grid_shape": [
+        96,
+        96,
+        64
+      ],
+      "display_grid_factors": [
+        2,
+        2,
+        2
+      ],
+      "raw_voxel_count": 450946,
+      "raw_volume_fraction": 0.09556791517469618,
+      "display_thinning": {
+        "voxels_before_thinning": 450946,
+        "voxels_after_thinning": 328974,
+        "retained_fraction_after_thinning": 0.7295197207647922,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 328974,
+        "voxels_after_max_block_reduction": 131806,
+        "block_factors": [
+          2,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 341,
+        "components_after": 149,
+        "voxels_before": 131806,
+        "voxels_after": 131511,
+        "retained_fraction": 0.9977618621307073,
+        "minimum_component_voxels_on_display_grid": 4
+      },
+      "mesh": {
+        "faces_before": 865908,
+        "faces_after": 454284,
+        "retained_face_fraction_after_decimation": 0.5246331018999709,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\delft_frozen_external\\figures\\delft_surface_meshes\\traditional_tfl.vtp"
+    },
+    "U-Net": {
+      "display_grid_shape": [
+        96,
+        96,
+        64
+      ],
+      "display_grid_factors": [
+        2,
+        2,
+        2
+      ],
+      "raw_voxel_count": 1980620,
+      "raw_volume_fraction": 0.41974809434678817,
+      "display_thinning": {
+        "voxels_before_thinning": 1980620,
+        "voxels_after_thinning": 437574,
+        "retained_fraction_after_thinning": 0.22092779028788964,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 437574,
+        "voxels_after_max_block_reduction": 175310,
+        "block_factors": [
+          2,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 139,
+        "components_after": 31,
+        "voxels_before": 175310,
+        "voxels_after": 175151,
+        "retained_fraction": 0.9990930351947978,
+        "minimum_component_voxels_on_display_grid": 4
+      },
+      "mesh": {
+        "faces_before": 877240,
+        "faces_after": 559990,
+        "retained_face_fraction_after_decimation": 0.6383543842050066,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\delft_frozen_external\\figures\\delft_surface_meshes\\unet.vtp"
+    },
+    "Hybrid DSA": {
+      "display_grid_shape": [
+        96,
+        96,
+        64
+      ],
+      "display_grid_factors": [
+        2,
+        2,
+        2
+      ],
+      "raw_voxel_count": 3059846,
+      "raw_volume_fraction": 0.6484658983018663,
+      "display_thinning": {
+        "voxels_before_thinning": 3059846,
+        "voxels_after_thinning": 415990,
+        "retained_fraction_after_thinning": 0.1359512864372913,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 415990,
+        "voxels_after_max_block_reduction": 184541,
+        "block_factors": [
+          2,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 73,
+        "components_after": 15,
+        "voxels_before": 184541,
+        "voxels_after": 184470,
+        "retained_fraction": 0.9996152616491728,
+        "minimum_component_voxels_on_display_grid": 4
+      },
+      "mesh": {
+        "faces_before": 986222,
+        "faces_after": 585190,
+        "retained_face_fraction_after_decimation": 0.5933653883202767,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\delft_frozen_external\\figures\\delft_surface_meshes\\hybrid_dsa.vtp"
+    },
+    "SwinUNETR": {
+      "display_grid_shape": [
+        96,
+        96,
+        64
+      ],
+      "display_grid_factors": [
+        2,
+        2,
+        2
+      ],
+      "raw_voxel_count": 293383,
+      "raw_volume_fraction": 0.06217596266004774,
+      "display_thinning": {
+        "voxels_before_thinning": 293383,
+        "voxels_after_thinning": 109353,
+        "retained_fraction_after_thinning": 0.37273120801137083,
+        "method": "2D skeletonization independently on every first-axis seismic section"
+      },
+      "display_grid_reduction": {
+        "voxels_before_block_reduction": 109353,
+        "voxels_after_max_block_reduction": 44832,
+        "block_factors": [
+          2,
+          2,
+          2
+        ],
+        "method": "binary maximum over each display-grid block"
+      },
+      "component_filter": {
+        "components_before": 860,
+        "components_after": 283,
+        "voxels_before": 44832,
+        "voxels_after": 43903,
+        "retained_fraction": 0.9792781941470379,
+        "minimum_component_voxels_on_display_grid": 4
+      },
+      "mesh": {
+        "faces_before": 279464,
+        "faces_after": 180000,
+        "retained_face_fraction_after_decimation": 0.6440901153636962,
+        "maximum_faces": 180000,
+        "preserve_topology": true
+      },
+      "mesh_file": "runs\\delft_frozen_external\\figures\\delft_surface_meshes\\swinunetr.vtp"
+    }
+  }
+}

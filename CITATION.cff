@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the associated manuscript and this repository."
-title: "Hybrid DSA for 3D Seismic Fault Segmentation"
+title: "Domain Instability in 3D Seismic Fault Segmentation"
 type: software
-version: 1.0.0
-date-released: 2026-06-29
+version: 1.1.0
+date-released: 2026-06-30
 authors:
   - family-names: Yang
     given-names: Chenyu

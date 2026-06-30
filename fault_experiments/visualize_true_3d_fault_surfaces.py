@@ -103,7 +103,14 @@ def binary_surface(
     if mesh.n_cells > maximum_faces:
         reduction = 1.0 - maximum_faces / mesh.n_cells
         mesh = mesh.decimate_pro(reduction, preserve_topology=True).clean()
-    return mesh, {"faces_before": faces_before, "faces_after": int(mesh.n_cells)}
+    faces_after = int(mesh.n_cells)
+    return mesh, {
+        "faces_before": faces_before,
+        "faces_after": faces_after,
+        "retained_face_fraction_after_decimation": float(faces_after / max(faces_before, 1)),
+        "maximum_faces": int(maximum_faces),
+        "preserve_topology": True,
+    }
 
 
 def seismic_context(
@@ -158,6 +165,12 @@ def render_surface_panels(
         plotter.subplot(0, panel_index)
         thinned, thinning_stats = thin_section_traces(raw_mask)
         reduced = reduce_binary(thinned, factors)
+        reduction_stats = {
+            "voxels_before_block_reduction": int(thinned.sum()),
+            "voxels_after_max_block_reduction": int(reduced.sum()),
+            "block_factors": list(factors),
+            "method": "binary maximum over each display-grid block",
+        }
         cleaned, component_stats = retain_components(reduced, minimum_component_voxels)
         mesh, mesh_stats = binary_surface(
             cleaned,
@@ -214,8 +227,10 @@ def render_surface_panels(
         metadata[name] = {
             "display_grid_shape": list(cleaned.shape),
             "display_grid_factors": list(factors),
+            "raw_voxel_count": int(np.asarray(raw_mask, dtype=bool).sum()),
             "raw_volume_fraction": float(np.asarray(raw_mask, dtype=bool).mean()),
             "display_thinning": thinning_stats,
+            "display_grid_reduction": reduction_stats,
             "component_filter": component_stats,
             "mesh": mesh_stats,
             "mesh_file": str(mesh_path.relative_to(ROOT)) if mesh.n_cells else None,

@@ -20,7 +20,7 @@ SOURCES = {
     / "summary_statistics.json",
     "cracks": ROOT / "runs" / "cracks_final_statistics.json",
     "efficiency": ROOT / "runs" / "efficiency" / "inference_benchmark.json",
-    "coherence": ROOT / "runs" / "coherence_baseline" / "test2_test7_summary.json",
+    "coherence": ROOT / "runs" / "dip_steered_coherence_baseline" / "test2_test7_summary.json",
 }
 
 MODEL_LABELS = {

@@ -1,0 +1,326 @@
+{
+  "analysis_scope": "Controlled synthetic OOD sensitivity of frozen field-adapted checkpoints; no retraining or threshold tuning",
+  "seed": 20261201,
+  "samples_per_profile": 8,
+  "profiles": {
+    "reference": {
+      "U-Net": {
+        "mean_dice": 0.5228342819234609,
+        "standard_deviation_dice": 0.14722339258023637,
+        "minimum_dice": 0.3130931372177746,
+        "maximum_dice": 0.7146746378477811,
+        "mean_precision": 0.44296235695681957,
+        "mean_recall": 0.7429668156155399,
+        "mean_dice_change_from_reference": 0.0
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.3213191630902099,
+        "standard_deviation_dice": 0.13123539244914834,
+        "minimum_dice": 0.09260360645365391,
+        "maximum_dice": 0.4603270103896827,
+        "mean_precision": 0.2127809492280594,
+        "mean_recall": 0.8148876682176115,
+        "mean_dice_change_from_reference": 0.0
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.5150639122595504,
+        "standard_deviation_dice": 0.08905115054589291,
+        "minimum_dice": 0.38730421325079384,
+        "maximum_dice": 0.6168364500658663,
+        "mean_precision": 0.43549752159399985,
+        "mean_recall": 0.7135527107256299,
+        "mean_dice_change_from_reference": 0.0
+      }
+    },
+    "low_frequency": {
+      "U-Net": {
+        "mean_dice": 0.5297207629156524,
+        "standard_deviation_dice": 0.13889777465948397,
+        "minimum_dice": 0.28180062878458567,
+        "maximum_dice": 0.7443839737957114,
+        "mean_precision": 0.4360460351893609,
+        "mean_recall": 0.7780424540517341,
+        "mean_dice_change_from_reference": 0.006886480992191468
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.29348837597022587,
+        "standard_deviation_dice": 0.13439877897301464,
+        "minimum_dice": 0.06898005889697294,
+        "maximum_dice": 0.4422847935167029,
+        "mean_precision": 0.18903879636278784,
+        "mean_recall": 0.8391065444349692,
+        "mean_dice_change_from_reference": -0.027830787119984046
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.48149171691768666,
+        "standard_deviation_dice": 0.09032594771112011,
+        "minimum_dice": 0.3727264489235828,
+        "maximum_dice": 0.5958833138011701,
+        "mean_precision": 0.40655059955669404,
+        "mean_recall": 0.6845511671065967,
+        "mean_dice_change_from_reference": -0.03357219534186373
+      }
+    },
+    "high_frequency": {
+      "U-Net": {
+        "mean_dice": 0.5044565358931828,
+        "standard_deviation_dice": 0.15194809014650884,
+        "minimum_dice": 0.2732784813530155,
+        "maximum_dice": 0.69221082419526,
+        "mean_precision": 0.44177765540147024,
+        "mean_recall": 0.7034135863434049,
+        "mean_dice_change_from_reference": -0.018377746030278086
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.31737979631146973,
+        "standard_deviation_dice": 0.09137515348485518,
+        "minimum_dice": 0.16065938522411535,
+        "maximum_dice": 0.4110911576123665,
+        "mean_precision": 0.2077618073139092,
+        "mean_recall": 0.8036976772750142,
+        "mean_dice_change_from_reference": -0.003939366778740183
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.4897485263087079,
+        "standard_deviation_dice": 0.08194865587552508,
+        "minimum_dice": 0.37194433032046015,
+        "maximum_dice": 0.591107326262548,
+        "mean_precision": 0.4183652189751007,
+        "mean_recall": 0.6745989278726795,
+        "mean_dice_change_from_reference": -0.025315385950842484
+      }
+    },
+    "high_noise": {
+      "U-Net": {
+        "mean_dice": 0.4424970884592057,
+        "standard_deviation_dice": 0.1520172582392739,
+        "minimum_dice": 0.22104436684641013,
+        "maximum_dice": 0.6275402679512269,
+        "mean_precision": 0.354663543368688,
+        "mean_recall": 0.7312073051857537,
+        "mean_dice_change_from_reference": -0.08033719346425522
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.14842660720538126,
+        "standard_deviation_dice": 0.06801918888397729,
+        "minimum_dice": 0.06612428439853359,
+        "maximum_dice": 0.24973069177087726,
+        "mean_precision": 0.08293458639417575,
+        "mean_recall": 0.9251551453928099,
+        "mean_dice_change_from_reference": -0.17289255588482866
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.47393482014979105,
+        "standard_deviation_dice": 0.08480725220294653,
+        "minimum_dice": 0.35813959267865353,
+        "maximum_dice": 0.5835305418941028,
+        "mean_precision": 0.38429115655790747,
+        "mean_recall": 0.6985006046944606,
+        "mean_dice_change_from_reference": -0.041129092109759346
+      }
+    },
+    "low_throw": {
+      "U-Net": {
+        "mean_dice": 0.42423889146333393,
+        "standard_deviation_dice": 0.1771349764155058,
+        "minimum_dice": 0.1375159969962665,
+        "maximum_dice": 0.6727758820839342,
+        "mean_precision": 0.500900045951713,
+        "mean_recall": 0.44432796431160815,
+        "mean_dice_change_from_reference": -0.098595390460127
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.2783869275500015,
+        "standard_deviation_dice": 0.1509238907572903,
+        "minimum_dice": 0.08012693088916678,
+        "maximum_dice": 0.4490599950979947,
+        "mean_precision": 0.2384928715031271,
+        "mean_recall": 0.47862607638862864,
+        "mean_dice_change_from_reference": -0.04293223554020842
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.36105520864568225,
+        "standard_deviation_dice": 0.12748691964073783,
+        "minimum_dice": 0.1656940056411516,
+        "maximum_dice": 0.6091466451424548,
+        "mean_precision": 0.43472724435659993,
+        "mean_recall": 0.36392514862003494,
+        "mean_dice_change_from_reference": -0.15400870361386815
+      }
+    },
+    "high_curvature": {
+      "U-Net": {
+        "mean_dice": 0.5367692304869296,
+        "standard_deviation_dice": 0.0953200813346974,
+        "minimum_dice": 0.36373796815838694,
+        "maximum_dice": 0.6939632663414051,
+        "mean_precision": 0.43582991598136556,
+        "mean_recall": 0.7667047648374699,
+        "mean_dice_change_from_reference": 0.013934948563468663
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.3584913680541689,
+        "standard_deviation_dice": 0.12097239179138859,
+        "minimum_dice": 0.13555139477294495,
+        "maximum_dice": 0.5089286684315167,
+        "mean_precision": 0.23919001666203238,
+        "mean_recall": 0.8304445919260317,
+        "mean_dice_change_from_reference": 0.03717220496395901
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.5494766226878309,
+        "standard_deviation_dice": 0.08468691759979463,
+        "minimum_dice": 0.4157286044718581,
+        "maximum_dice": 0.6718221132021376,
+        "mean_precision": 0.46983987247096165,
+        "mean_recall": 0.7260900231008707,
+        "mean_dice_change_from_reference": 0.034412710428280535
+      }
+    },
+    "strong_depth_dip": {
+      "U-Net": {
+        "mean_dice": 0.3452961287933097,
+        "standard_deviation_dice": 0.13549574900184574,
+        "minimum_dice": 0.042011646373742724,
+        "maximum_dice": 0.4839408480409388,
+        "mean_precision": 0.2940439357369574,
+        "mean_recall": 0.5323782459429083,
+        "mean_dice_change_from_reference": -0.17753815313015125
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.2374097921639773,
+        "standard_deviation_dice": 0.07670077102944362,
+        "minimum_dice": 0.086837221394245,
+        "maximum_dice": 0.33941698931362807,
+        "mean_precision": 0.14529905062317003,
+        "mean_recall": 0.7693696122606292,
+        "mean_dice_change_from_reference": -0.0839093709262326
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.372559970471204,
+        "standard_deviation_dice": 0.06061448105342203,
+        "minimum_dice": 0.2565567657840285,
+        "maximum_dice": 0.45559171895446765,
+        "mean_precision": 0.34425490840035033,
+        "mean_recall": 0.4804273293926881,
+        "mean_dice_change_from_reference": -0.1425039417883464
+      }
+    },
+    "phase_rotated": {
+      "U-Net": {
+        "mean_dice": 0.5895396464654454,
+        "standard_deviation_dice": 0.10816625881700973,
+        "minimum_dice": 0.39395730525505507,
+        "maximum_dice": 0.73391494516164,
+        "mean_precision": 0.511205324487264,
+        "mean_recall": 0.784941759771881,
+        "mean_dice_change_from_reference": 0.0667053645419845
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.3372662410793957,
+        "standard_deviation_dice": 0.12687923042581925,
+        "minimum_dice": 0.13554307375817673,
+        "maximum_dice": 0.47937300031400903,
+        "mean_precision": 0.2185708564236049,
+        "mean_recall": 0.897743392218705,
+        "mean_dice_change_from_reference": 0.015947077989185765
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.5108259053451409,
+        "standard_deviation_dice": 0.08768255842868403,
+        "minimum_dice": 0.35404218033126045,
+        "maximum_dice": 0.6108275764838573,
+        "mean_precision": 0.43508570617061226,
+        "mean_recall": 0.7099252716205913,
+        "mean_dice_change_from_reference": -0.004238006914409453
+      }
+    },
+    "colored_noise": {
+      "U-Net": {
+        "mean_dice": 0.4015384253660285,
+        "standard_deviation_dice": 0.14319297361311775,
+        "minimum_dice": 0.23924603228570263,
+        "maximum_dice": 0.6079121530032237,
+        "mean_precision": 0.2862891834001434,
+        "mean_recall": 0.8123426614399507,
+        "mean_dice_change_from_reference": -0.12129585655743241
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.27756406709342574,
+        "standard_deviation_dice": 0.11497538477016392,
+        "minimum_dice": 0.07967661149825785,
+        "maximum_dice": 0.4056272293896056,
+        "mean_precision": 0.1728803502266283,
+        "mean_recall": 0.856530703956014,
+        "mean_dice_change_from_reference": -0.04375509599678418
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.3965585604992352,
+        "standard_deviation_dice": 0.09982022089619491,
+        "minimum_dice": 0.2978695445063158,
+        "maximum_dice": 0.5420459805585558,
+        "mean_precision": 0.31602174905063174,
+        "mean_recall": 0.6008831548326515,
+        "mean_dice_change_from_reference": -0.11850535176031518
+      }
+    },
+    "damage_zone": {
+      "U-Net": {
+        "mean_dice": 0.5047428089711106,
+        "standard_deviation_dice": 0.1473106079600438,
+        "minimum_dice": 0.3083508544121033,
+        "maximum_dice": 0.6882949583075614,
+        "mean_precision": 0.43352304967658073,
+        "mean_recall": 0.7130944083821906,
+        "mean_dice_change_from_reference": -0.018091472952350363
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.31212568437091603,
+        "standard_deviation_dice": 0.12746615086853638,
+        "minimum_dice": 0.09236383876333783,
+        "maximum_dice": 0.4434847136492484,
+        "mean_precision": 0.20771597366657923,
+        "mean_recall": 0.7880715031716741,
+        "mean_dice_change_from_reference": -0.00919347871929388
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.5116272043336019,
+        "standard_deviation_dice": 0.0879713401015477,
+        "minimum_dice": 0.38654388673018575,
+        "maximum_dice": 0.6132000903342367,
+        "mean_precision": 0.43345981717052307,
+        "mean_recall": 0.7083999387638158,
+        "mean_dice_change_from_reference": -0.0034367079259485234
+      }
+    },
+    "sparse_lateral_sampling": {
+      "U-Net": {
+        "mean_dice": 0.4043902664894232,
+        "standard_deviation_dice": 0.1352027314300589,
+        "minimum_dice": 0.19252939118796672,
+        "maximum_dice": 0.5296261228646675,
+        "mean_precision": 0.33667161795472555,
+        "mean_recall": 0.6468324861638215,
+        "mean_dice_change_from_reference": -0.11844401543403771
+      },
+      "Hybrid DSA": {
+        "mean_dice": 0.22212489716116024,
+        "standard_deviation_dice": 0.09718722017166512,
+        "minimum_dice": 0.04897818545540914,
+        "maximum_dice": 0.30855884987175514,
+        "mean_precision": 0.13682922829869731,
+        "mean_recall": 0.7721114317203629,
+        "mean_dice_change_from_reference": -0.09919426592904967
+      },
+      "SwinUNETR": {
+        "mean_dice": 0.3858601929849061,
+        "standard_deviation_dice": 0.07140795094747125,
+        "minimum_dice": 0.29719866767519937,
+        "maximum_dice": 0.4799408615040358,
+        "mean_precision": 0.34854607177193375,
+        "mean_recall": 0.5011056964035094,
+        "mean_dice_change_from_reference": -0.1292037192746443
+      }
+    }
+  }
+}

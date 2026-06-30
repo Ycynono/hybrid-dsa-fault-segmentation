@@ -9,6 +9,28 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.ndimage import gaussian_filter, map_coordinates
+from scipy.signal import hilbert
+
+
+PROFILES = {
+    "reference": {},
+    "low_frequency": {"wavelet_frequency": (0.06, 0.10)},
+    "high_frequency": {"wavelet_frequency": (0.24, 0.32)},
+    "high_noise": {"texture_scale": (0.08, 0.14), "white_noise": (0.08, 0.14)},
+    "low_throw": {"throw_samples": (1.0, 4.0)},
+    "high_curvature": {"curvature_magnitude": (0.25, 0.45)},
+    "strong_depth_dip": {"dip_magnitude": (0.35, 0.65)},
+    "phase_rotated": {"wavelet_phase_degrees": 90.0},
+    "colored_noise": {"colored_noise_scale": (0.10, 0.16)},
+    "damage_zone": {"damage_zone_attenuation": (0.35, 0.60)},
+    "sparse_lateral_sampling": {"lateral_decimation": 2},
+}
+
+
+def profile_settings(profile):
+    if profile not in PROFILES:
+        raise ValueError(f"Unknown synthetic profile: {profile}")
+    return PROFILES[profile]
 
 
 def ricker_wavelet(length=31, frequency=0.18):
@@ -62,7 +84,8 @@ def build_layer_model(shape, rng):
     return model.astype(np.float32), strat_coord.astype(np.float32)
 
 
-def add_faults(strat_coord, shape, rng):
+def add_faults(strat_coord, shape, rng, profile="reference"):
+    settings = profile_settings(profile)
     ni, nx, nt = shape
     ii, xx, _ = np.meshgrid(
         np.linspace(-1.0, 1.0, ni, dtype=np.float32),
@@ -82,9 +105,15 @@ def add_faults(strat_coord, shape, rng):
         normal_x = np.sin(angle)
         center_i = rng.uniform(-0.55, 0.55)
         center_x = rng.uniform(-0.55, 0.55)
-        curvature = rng.uniform(-0.18, 0.18)
-        dip_term = rng.uniform(-0.25, 0.25)
-        throw = rng.uniform(4.0, 18.0) * rng.choice([-1.0, 1.0])
+        if "curvature_magnitude" in settings:
+            curvature = rng.uniform(*settings["curvature_magnitude"]) * rng.choice([-1.0, 1.0])
+        else:
+            curvature = rng.uniform(-0.18, 0.18)
+        if "dip_magnitude" in settings:
+            dip_term = rng.uniform(*settings["dip_magnitude"]) * rng.choice([-1.0, 1.0])
+        else:
+            dip_term = rng.uniform(-0.25, 0.25)
+        throw = rng.uniform(*settings.get("throw_samples", (4.0, 18.0))) * rng.choice([-1.0, 1.0])
         transition = rng.uniform(0.015, 0.035)
         thickness = rng.uniform(0.008, 0.020)
 
@@ -123,10 +152,11 @@ def add_faults(strat_coord, shape, rng):
     return coord.astype(np.float32), label, fault_specs
 
 
-def synthesize_sample(shape, seed):
+def synthesize_sample(shape, seed, profile="reference"):
     rng = np.random.default_rng(seed)
     base, strat_coord = build_layer_model(shape, rng)
-    faulted_coord, label, fault_specs = add_faults(strat_coord, shape, rng)
+    faulted_coord, label, fault_specs = add_faults(strat_coord, shape, rng, profile=profile)
+    settings = profile_settings(profile)
 
     ni, nx, nt = shape
     ii, xx, _ = np.meshgrid(
@@ -146,13 +176,44 @@ def synthesize_sample(shape, seed):
     if not wavelet_lengths:
         wavelet_lengths = [max(3, nt if nt % 2 else nt - 1)]
     wavelet = ricker_wavelet(
-        length=int(rng.choice(wavelet_lengths)), frequency=rng.uniform(0.12, 0.22)
+        length=int(rng.choice(wavelet_lengths)),
+        frequency=rng.uniform(*settings.get("wavelet_frequency", (0.12, 0.22))),
     )
+    phase_degrees = float(settings.get("wavelet_phase_degrees", 0.0))
+    if phase_degrees:
+        analytic_wavelet = hilbert(wavelet)
+        phase_radians = np.deg2rad(phase_degrees)
+        wavelet = np.real(analytic_wavelet * np.exp(1j * phase_radians)).astype(np.float32)
+        wavelet -= wavelet.mean()
+        wavelet /= np.max(np.abs(wavelet)) + 1e-8
     amplitude = np.apply_along_axis(lambda tr: np.convolve(tr, wavelet, mode="same"), 2, amplitude)
 
     lateral_texture = gaussian_filter(rng.normal(0, 1, size=shape).astype(np.float32), sigma=(5.0, 5.0, 1.5))
-    amplitude += rng.uniform(0.02, 0.07) * lateral_texture
-    amplitude += rng.normal(0.0, rng.uniform(0.01, 0.04), size=shape).astype(np.float32)
+    amplitude += rng.uniform(*settings.get("texture_scale", (0.02, 0.07))) * lateral_texture
+    amplitude += rng.normal(
+        0.0, rng.uniform(*settings.get("white_noise", (0.01, 0.04))), size=shape
+    ).astype(np.float32)
+
+    if "colored_noise_scale" in settings:
+        colored_noise = gaussian_filter(
+            rng.normal(0.0, 1.0, size=shape).astype(np.float32),
+            sigma=(1.5, 5.0, 0.8),
+        )
+        colored_noise /= np.std(colored_noise) + 1e-8
+        amplitude += rng.uniform(*settings["colored_noise_scale"]) * colored_noise
+
+    if "damage_zone_attenuation" in settings:
+        damage_zone = gaussian_filter(label.astype(np.float32), sigma=(2.0, 2.0, 1.0))
+        damage_zone /= np.max(damage_zone) + 1e-8
+        attenuation = rng.uniform(*settings["damage_zone_attenuation"])
+        amplitude *= 1.0 - attenuation * damage_zone
+
+    lateral_decimation = int(settings.get("lateral_decimation", 1))
+    if lateral_decimation > 1:
+        coarse = amplitude[::lateral_decimation, ::lateral_decimation, :]
+        amplitude = np.repeat(
+            np.repeat(coarse, lateral_decimation, axis=0), lateral_decimation, axis=1
+        )[:ni, :nx, :]
 
     amplitude = gaussian_filter(amplitude, sigma=(0.35, 0.35, 0.15))
     p1, p99 = np.percentile(amplitude, [1, 99])
@@ -193,7 +254,9 @@ def split_for_index(index, n_train, n_val):
     return "test"
 
 
-def generate_dataset(output_dir, n_samples, shape, seed, n_train, n_val, qc_count):
+def generate_dataset(
+    output_dir, n_samples, shape, seed, n_train, n_val, qc_count, profile="reference"
+):
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     samples = []
@@ -205,7 +268,7 @@ def generate_dataset(output_dir, n_samples, shape, seed, n_train, n_val, qc_coun
         sample_dir = output_dir / split / sample_id
         sample_dir.mkdir(parents=True, exist_ok=True)
 
-        amplitude, label, fault_specs = synthesize_sample(shape, sample_seed)
+        amplitude, label, fault_specs = synthesize_sample(shape, sample_seed, profile=profile)
         np.save(sample_dir / "amplitude.npy", amplitude.astype(np.float16))
         np.save(sample_dir / "fault_label.npy", label)
 
@@ -214,6 +277,8 @@ def generate_dataset(output_dir, n_samples, shape, seed, n_train, n_val, qc_coun
             "split": split,
             "seed": sample_seed,
             "shape": list(shape),
+            "profile": profile,
+            "profile_settings": profile_settings(profile),
             "amplitude_file": "amplitude.npy",
             "fault_label_file": "fault_label.npy",
             "label_source": "analytic fault geometry, not gradient thresholding",
@@ -241,6 +306,8 @@ def generate_dataset(output_dir, n_samples, shape, seed, n_train, n_val, qc_coun
         "generator": "synthetic_fault_generator.py",
         "seed": seed,
         "shape": list(shape),
+        "profile": profile,
+        "profile_settings": profile_settings(profile),
         "n_samples": n_samples,
         "splits": {
             "train": n_train,
@@ -273,6 +340,7 @@ def main():
     parser.add_argument("--train", type=int, default=8)
     parser.add_argument("--val", type=int, default=2)
     parser.add_argument("--qc-count", type=int, default=6)
+    parser.add_argument("--profile", choices=tuple(PROFILES), default="reference")
     args = parser.parse_args()
 
     if args.train + args.val > args.n_samples:
@@ -286,6 +354,7 @@ def main():
         n_train=args.train,
         n_val=args.val,
         qc_count=args.qc_count,
+        profile=args.profile,
     )
 
 

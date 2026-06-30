@@ -26,12 +26,27 @@ def shifted_inline(section: np.ndarray, direction: int) -> np.ndarray:
     return shifted
 
 
+def shifted_samples(section: np.ndarray, shift: int) -> np.ndarray:
+    if shift == 0:
+        return section
+    shifted = np.empty_like(section)
+    if shift < 0:
+        offset = -shift
+        shifted[:, offset:] = section[:, :-offset]
+        shifted[:, :offset] = section[:, :1]
+    else:
+        shifted[:, :-shift] = section[:, shift:]
+        shifted[:, -shift:] = section[:, -1:]
+    return shifted
+
+
 def local_discontinuity(
     center: np.ndarray,
     crossline_before: np.ndarray,
     crossline_after: np.ndarray,
     sample_window: int,
     smoothing_sigma: float,
+    max_dip_shift: int,
 ) -> np.ndarray:
     center = np.asarray(center, dtype=np.float32)
     neighbors = (
@@ -46,14 +61,25 @@ def local_discontinuity(
     similarity = np.zeros_like(center, dtype=np.float32)
     eps = np.float32(1e-6)
     for neighbor in neighbors:
-        cross_energy = ndimage.uniform_filter1d(
-            center * neighbor, size=sample_window, axis=1, mode="nearest"
-        )
-        neighbor_energy = ndimage.uniform_filter1d(
-            neighbor * neighbor, size=sample_window, axis=1, mode="nearest"
-        )
-        correlation = cross_energy / np.sqrt(center_energy * neighbor_energy + eps)
-        similarity += np.clip(np.abs(correlation), 0.0, 1.0)
+        best_similarity = np.zeros_like(center, dtype=np.float32)
+        for shift in range(-max_dip_shift, max_dip_shift + 1):
+            steered_neighbor = shifted_samples(neighbor, shift)
+            cross_energy = ndimage.uniform_filter1d(
+                center * steered_neighbor, size=sample_window, axis=1, mode="nearest"
+            )
+            neighbor_energy = ndimage.uniform_filter1d(
+                steered_neighbor * steered_neighbor,
+                size=sample_window,
+                axis=1,
+                mode="nearest",
+            )
+            correlation = cross_energy / np.sqrt(center_energy * neighbor_energy + eps)
+            np.maximum(
+                best_similarity,
+                np.clip(np.abs(correlation), 0.0, 1.0),
+                out=best_similarity,
+            )
+        similarity += best_similarity
     score = 1.0 - similarity / len(neighbors)
     if smoothing_sigma > 0:
         score = ndimage.gaussian_filter(
@@ -62,13 +88,13 @@ def local_discontinuity(
     return np.clip(score, 0.0, 1.0).astype(np.float32, copy=False)
 
 
-def iter_block_scores(amplitude, sample_window, smoothing_sigma):
+def iter_block_scores(amplitude, sample_window, smoothing_sigma, max_dip_shift):
     for crossline in range(amplitude.shape[0]):
         before = amplitude[max(crossline - 1, 0)]
         center = amplitude[crossline]
         after = amplitude[min(crossline + 1, amplitude.shape[0] - 1)]
         yield crossline, local_discontinuity(
-            center, before, after, sample_window, smoothing_sigma
+            center, before, after, sample_window, smoothing_sigma, max_dip_shift
         )
 
 
@@ -85,7 +111,7 @@ def calibrate(args):
         amplitude = np.load(data_dir / "amplitude_norm.npy", mmap_mode="r")
         label = np.load(data_dir / "fault_label.npy", mmap_mode="r")
         for crossline, score in iter_block_scores(
-            amplitude, args.sample_window, args.smoothing_sigma
+            amplitude, args.sample_window, args.smoothing_sigma, args.max_dip_shift
         ):
             truth = np.asarray(label[crossline], dtype=bool)
             for threshold in thresholds:
@@ -119,10 +145,11 @@ def calibrate(args):
         writer.writeheader()
         writer.writerows(sorted(rows, key=lambda row: row["threshold"]))
     result = {
-        "method": "local normalized trace coherence discontinuity",
-        "score_definition": "1 - mean absolute local cosine correlation to +/-crossline and +/-inline neighbors",
+        "method": "locally dip-steered normalized trace coherence discontinuity",
+        "score_definition": "1 - mean best absolute local cosine correlation to +/-crossline and +/-inline neighbors over the allowed sample shifts",
         "sample_window": args.sample_window,
         "smoothing_sigma_inline_sample": args.smoothing_sigma,
+        "maximum_sample_shift_for_local_dip_steering": args.max_dip_shift,
         "selection_data": "Thebe val1-val2 only",
         "selected_threshold": selected["threshold"],
         "selected_validation_metrics": selected,
@@ -149,7 +176,7 @@ def evaluate_block(args, block, threshold):
         sample_plane = np.zeros((amplitude.shape[0], amplitude.shape[1]), dtype=np.float16)
         crossline_plane = None
     for crossline, score in iter_block_scores(
-        amplitude, args.sample_window, args.smoothing_sigma
+        amplitude, args.sample_window, args.smoothing_sigma, args.max_dip_shift
     ):
         truth = np.asarray(label[crossline], dtype=bool)
         prediction = score >= threshold
@@ -165,12 +192,13 @@ def evaluate_block(args, block, threshold):
         key: sum(row[key] for row in rows) for key in ("tp", "fp", "fn")
     }
     summary = {
-        "model": "coherence_discontinuity",
+        "model": "dip_steered_coherence_discontinuity",
         "block": block,
         "threshold": threshold,
         "threshold_source": "Thebe val1-val2 only",
         "sample_window": args.sample_window,
         "smoothing_sigma_inline_sample": args.smoothing_sigma,
+        "maximum_sample_shift_for_local_dip_steering": args.max_dip_shift,
         "runtime_seconds": time.perf_counter() - started,
         "precision": totals["tp"] / max(totals["tp"] + totals["fp"], 1),
         "recall": totals["tp"] / max(totals["tp"] + totals["fn"], 1),
@@ -222,10 +250,11 @@ def evaluate(args):
         evaluate_block(args, f"test{index}", threshold) for index in range(2, 8)
     ]
     aggregate = {
-        "method": "coherence_discontinuity",
+        "method": "dip_steered_coherence_discontinuity",
         "n_blocks": len(summaries),
         "threshold": threshold,
         "threshold_source": "Thebe val1-val2 only",
+        "maximum_sample_shift_for_local_dip_steering": args.max_dip_shift,
         "macro_block_exact_dice": float(np.mean([row["dice"] for row in summaries])),
         "macro_block_tolerant_dice_3px": float(
             np.mean([row["macro_tolerant_dice_3px"] for row in summaries])
@@ -249,10 +278,18 @@ def main():
         "--data-root", type=Path, default=ROOT / "processed_data" / "thebe_official"
     )
     parser.add_argument(
-        "--output-dir", type=Path, default=ROOT / "runs" / "coherence_baseline"
+        "--output-dir",
+        type=Path,
+        default=ROOT / "runs" / "dip_steered_coherence_baseline",
     )
     parser.add_argument("--sample-window", type=int, default=9)
     parser.add_argument("--smoothing-sigma", type=float, default=1.0)
+    parser.add_argument(
+        "--max-dip-shift",
+        type=int,
+        default=1,
+        help="Maximum positive/negative sample shift used for local dip steering; use 0 to reproduce the unsteered control.",
+    )
     parser.add_argument(
         "--thresholds",
         default="0.02,0.04,0.06,0.08,0.10,0.12,0.14,0.16,0.18,0.20,0.24,0.28,0.32,0.36,0.40",
@@ -263,6 +300,8 @@ def main():
     args = parser.parse_args()
     if args.sample_window < 3 or args.sample_window % 2 == 0:
         raise ValueError("sample-window must be an odd integer >= 3")
+    if args.max_dip_shift < 0:
+        raise ValueError("max-dip-shift must be non-negative")
     if args.mode == "calibrate":
         calibrate(args)
     else:

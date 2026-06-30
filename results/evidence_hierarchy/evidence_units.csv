@@ -1,0 +1,5 @@
+dataset,survey_cluster,role,label_status,reported_units,unit_type,independent_survey_clusters,supports_within_survey_inference,supports_between_survey_generalization
+Thebe,"Exmouth Plateau, northwest Australia","dense field adaptation, validation selection, and spatially held-out frozen test",expert-labelled 3D blocks,6,spatial test block,1,True,False
+CRACKS reserve,"F3, Dutch North Sea",sealed external annotation-domain reserve,independent expert section labels,20,2D section,1,True,False
+FORCE,"Ichthys, northwest Australia",frozen survey-domain stress test,no independent expert labels,1,fixed ROI,1,False,False
+Delft,West Netherlands Basin,frozen survey-domain stress test with algorithmic TFL comparator,no independent expert labels; TFL is not ground truth,1,fixed ROI,1,False,False
