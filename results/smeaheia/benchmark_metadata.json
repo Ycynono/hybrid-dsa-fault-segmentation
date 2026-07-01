@@ -1,0 +1,333 @@
+{
+  "id": "smeaheia_gn1101_expert_roi_384x512x640",
+  "dataset": "Smeaheia GN1101",
+  "data_role": "independent sparse 3D expert validation; no training or threshold selection",
+  "doi": "10.11582/2021.00012",
+  "source": {
+    "segy": "external_data\\smeaheia\\seismic_3d\\Seismic_3D_Surveys\\data\\GN1101_Scaled(Realized)",
+    "segy_sha256": "1229da79662eed4edb62beca8582088d59a431d6f768271abcf14cbda76ba800",
+    "fault_sticks": "external_data\\smeaheia\\fault_sticks\\Fault_Sticks\\data\\fault_Sticks_GN1101_2012",
+    "fault_sticks_sha256": "c889e8e067e2585f98ce32d173c913e464dace9b702c3335a710a81cd7b5a78f"
+  },
+  "source_volume_shape": [
+    581,
+    2457,
+    1251
+  ],
+  "shape": [
+    384,
+    512,
+    640
+  ],
+  "starts": [
+    0,
+    1568,
+    128
+  ],
+  "ends_exclusive": [
+    384,
+    2080,
+    768
+  ],
+  "coordinate_ranges": {
+    "inline": [
+      976,
+      1359
+    ],
+    "crossline": [
+      4810,
+      5832
+    ],
+    "time_ms": [
+      512.0,
+      3068.0
+    ],
+    "sample_interval_ms": 4.0
+  },
+  "selection_policy": {
+    "locked_before_prediction": true,
+    "window_shape": [
+      384,
+      512,
+      640
+    ],
+    "candidate_stride": 32,
+    "primary_score": "maximum released expert-point coverage",
+    "secondary_scores": [
+      "fault-object count",
+      "fault-stick count"
+    ],
+    "tie_break": "lexicographically earliest inline/crossline/sample start",
+    "evaluated_window_count": 10416,
+    "winning_score_point_fault_stick": [
+      4691,
+      36,
+      1130
+    ]
+  },
+  "expert_reference": {
+    "released_point_count_in_roi": 4691,
+    "fault_object_count_in_roi": 36,
+    "fault_stick_count_in_roi": 1130,
+    "centreline_voxels": 67462,
+    "label_voxels_radius_1": 246708,
+    "validity_voxels_radius_8": 1559200,
+    "active_inline_sections": 297,
+    "label_radius_2d_pixels": 1,
+    "validity_radius_2d_pixels": 8,
+    "faults": [
+      {
+        "name": "脴ygarden_1",
+        "released_points_in_roi": 885,
+        "contributing_sticks": 78,
+        "rasterized_centreline_samples": 16185
+      },
+      {
+        "name": "Fault_interpretation_23",
+        "released_points_in_roi": 613,
+        "contributing_sticks": 141,
+        "rasterized_centreline_samples": 10398
+      },
+      {
+        "name": "Fault_interpretation_25",
+        "released_points_in_roi": 405,
+        "contributing_sticks": 84,
+        "rasterized_centreline_samples": 6173
+      },
+      {
+        "name": "Fault_interpretation_82",
+        "released_points_in_roi": 312,
+        "contributing_sticks": 65,
+        "rasterized_centreline_samples": 5468
+      },
+      {
+        "name": "Fault_interpretation_79",
+        "released_points_in_roi": 213,
+        "contributing_sticks": 69,
+        "rasterized_centreline_samples": 3293
+      },
+      {
+        "name": "Fault_interpretation_36",
+        "released_points_in_roi": 206,
+        "contributing_sticks": 61,
+        "rasterized_centreline_samples": 3835
+      },
+      {
+        "name": "Fault_interpretation_41",
+        "released_points_in_roi": 195,
+        "contributing_sticks": 63,
+        "rasterized_centreline_samples": 2512
+      },
+      {
+        "name": "Fault_interpretation_42",
+        "released_points_in_roi": 159,
+        "contributing_sticks": 47,
+        "rasterized_centreline_samples": 2346
+      },
+      {
+        "name": "Fault_interpretation_32",
+        "released_points_in_roi": 149,
+        "contributing_sticks": 39,
+        "rasterized_centreline_samples": 2066
+      },
+      {
+        "name": "Fault_interpretation_35",
+        "released_points_in_roi": 127,
+        "contributing_sticks": 34,
+        "rasterized_centreline_samples": 2435
+      },
+      {
+        "name": "Fault_interpretation_62",
+        "released_points_in_roi": 122,
+        "contributing_sticks": 24,
+        "rasterized_centreline_samples": 1354
+      },
+      {
+        "name": "Fault_interpretation_26",
+        "released_points_in_roi": 110,
+        "contributing_sticks": 20,
+        "rasterized_centreline_samples": 4490
+      },
+      {
+        "name": "Fault_interpretation_53",
+        "released_points_in_roi": 110,
+        "contributing_sticks": 40,
+        "rasterized_centreline_samples": 1287
+      },
+      {
+        "name": "Fault_interpretation_80",
+        "released_points_in_roi": 99,
+        "contributing_sticks": 39,
+        "rasterized_centreline_samples": 927
+      },
+      {
+        "name": "Fault_interpretation_29",
+        "released_points_in_roi": 95,
+        "contributing_sticks": 22,
+        "rasterized_centreline_samples": 959
+      },
+      {
+        "name": "Fault_interpretation_37",
+        "released_points_in_roi": 92,
+        "contributing_sticks": 29,
+        "rasterized_centreline_samples": 1185
+      },
+      {
+        "name": "Fault_interpretation_22",
+        "released_points_in_roi": 75,
+        "contributing_sticks": 17,
+        "rasterized_centreline_samples": 1456
+      },
+      {
+        "name": "Fault_interpretation_49",
+        "released_points_in_roi": 70,
+        "contributing_sticks": 26,
+        "rasterized_centreline_samples": 528
+      },
+      {
+        "name": "Fault_interpretation_63",
+        "released_points_in_roi": 60,
+        "contributing_sticks": 24,
+        "rasterized_centreline_samples": 344
+      },
+      {
+        "name": "Fault_interpretation_24",
+        "released_points_in_roi": 55,
+        "contributing_sticks": 19,
+        "rasterized_centreline_samples": 609
+      },
+      {
+        "name": "Fault_interpretation_52",
+        "released_points_in_roi": 48,
+        "contributing_sticks": 15,
+        "rasterized_centreline_samples": 355
+      },
+      {
+        "name": "Fault_interpretation_44",
+        "released_points_in_roi": 45,
+        "contributing_sticks": 15,
+        "rasterized_centreline_samples": 526
+      },
+      {
+        "name": "Fault_interpretation_40",
+        "released_points_in_roi": 43,
+        "contributing_sticks": 17,
+        "rasterized_centreline_samples": 447
+      },
+      {
+        "name": "Fault_interpretation_66",
+        "released_points_in_roi": 40,
+        "contributing_sticks": 16,
+        "rasterized_centreline_samples": 515
+      },
+      {
+        "name": "Fault_interpretation_27",
+        "released_points_in_roi": 38,
+        "contributing_sticks": 14,
+        "rasterized_centreline_samples": 619
+      },
+      {
+        "name": "Fault_interpretation_43",
+        "released_points_in_roi": 38,
+        "contributing_sticks": 11,
+        "rasterized_centreline_samples": 471
+      },
+      {
+        "name": "Fault_interpretation_50",
+        "released_points_in_roi": 37,
+        "contributing_sticks": 14,
+        "rasterized_centreline_samples": 199
+      },
+      {
+        "name": "Fault_interpretation_54",
+        "released_points_in_roi": 37,
+        "contributing_sticks": 16,
+        "rasterized_centreline_samples": 253
+      },
+      {
+        "name": "Fault_interpretation_65",
+        "released_points_in_roi": 33,
+        "contributing_sticks": 11,
+        "rasterized_centreline_samples": 501
+      },
+      {
+        "name": "Fault_interpretation_51",
+        "released_points_in_roi": 32,
+        "contributing_sticks": 11,
+        "rasterized_centreline_samples": 197
+      },
+      {
+        "name": "Fault_interpretation_77",
+        "released_points_in_roi": 31,
+        "contributing_sticks": 10,
+        "rasterized_centreline_samples": 456
+      },
+      {
+        "name": "Fault_interpretation_64",
+        "released_points_in_roi": 28,
+        "contributing_sticks": 8,
+        "rasterized_centreline_samples": 476
+      },
+      {
+        "name": "Fault_interpretation_30",
+        "released_points_in_roi": 26,
+        "contributing_sticks": 6,
+        "rasterized_centreline_samples": 345
+      },
+      {
+        "name": "Fault_interpretation_28",
+        "released_points_in_roi": 24,
+        "contributing_sticks": 6,
+        "rasterized_centreline_samples": 286
+      },
+      {
+        "name": "Fault_interpretation_78",
+        "released_points_in_roi": 23,
+        "contributing_sticks": 11,
+        "rasterized_centreline_samples": 185
+      },
+      {
+        "name": "Fault_interpretation_31",
+        "released_points_in_roi": 16,
+        "contributing_sticks": 8,
+        "rasterized_centreline_samples": 179
+      }
+    ]
+  },
+  "xy_only_resolution": {
+    "method": "least-squares affine X/Y-to-inline/crossline fit using provider-indexed picks",
+    "coefficients_columns_inline_crossline": [
+      [
+        0.016904685333251165,
+        0.14500923941945276
+      ],
+      [
+        -0.03625233719553903,
+        0.06761808187411393
+      ],
+      [
+        235649.05080596966,
+        -533184.7181444247
+      ]
+    ],
+    "fit_residual_median_line_units": [
+      0.0006088361114962026,
+      0.4841252916958183
+    ],
+    "fit_residual_p95_line_units": [
+      0.0007575590803753585,
+      0.9463941522932146
+    ],
+    "xy_only_point_count": 223
+  },
+  "trace_order_regular": true,
+  "normalization": {
+    "method": "1st/99th percentile clipping to [0,1]",
+    "percentile_sample": "every 16th inline, 8th crossline and 4th time sample",
+    "sampled_finite_voxels": 245760,
+    "clip_low": -5079.43212890625,
+    "clip_high": 5079.43212890625
+  },
+  "evaluation_policy": "Evaluate only on released expert inline sections and their 2D validity corridors. All other voxels are ignored because released sticks are not an exhaustive fault inventory.",
+  "threshold_policy": "Use Thebe val1-val2 thresholds unchanged for all models."
+}

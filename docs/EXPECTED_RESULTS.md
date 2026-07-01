@@ -24,6 +24,19 @@ The one-sample dip-steered coherence result has recall `0.9549`, precision `0.01
 
 The reserve Hybrid-minus-Swin exact-Dice difference is `0.1140` with 19 wins in 20 paired sections.
 
+## Smeaheia GN1101 independent sparse-expert ROI
+
+| Method | Precision | Recall | Exact Dice | 3-pixel tolerant Dice | AUPRC | Brier | ECE | Mean/p95 distance (px) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Dip-steered coherence | 0.2190 | 0.1782 | 0.1965 | 0.4946 | 0.1986 | 0.1544 | 0.1476 | 12.49 / 43.38 |
+| 3D U-Net | 0.2331 | 0.2472 | 0.2399 | 0.5133 | 0.2108 | 0.1765 | 0.1608 | 13.37 / 50.77 |
+| Hybrid DSA | 0.2178 | 0.4052 | 0.2833 | 0.5839 | 0.2124 | 0.1630 | 0.1413 | 9.57 / 31.00 |
+| SwinUNETR | 0.3011 | 0.1413 | 0.1923 | 0.4853 | 0.2332 | 0.1427 | 0.0885 | 15.79 / 49.01 |
+
+Metrics use only the 297 released expert inline sections and two-dimensional validity corridors. The Hybrid-minus-U-Net macro section exact-Dice difference is `0.0361` with a 95% within-survey section-bootstrap interval of `0.0242-0.0476`. These sections do not constitute independent survey clusters.
+
+Across all 36 released fault objects, macro exact/tolerant Dice is `0.1573/0.4237` for coherence, `0.1436/0.3764` for U-Net, `0.1808/0.4489` for Hybrid DSA and `0.0894/0.2859` for SwinUNETR. Hybrid-minus-U-Net object differences are `0.0372` exact and `0.0725` tolerant Dice, with within-survey fault-object bootstrap intervals of `0.0095-0.0649` and `0.0282-0.1172`.
+
 ## Threshold-free and calibration diagnostics
 
 | Dataset | Model | AUPRC | Brier | ECE | Frozen threshold | Best histogram threshold |

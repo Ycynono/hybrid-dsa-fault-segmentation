@@ -14,6 +14,10 @@ REQUIRED = [
     ROOT / "protocol/cracks_expert_split.json",
     ROOT / "results/thebe/summary_statistics.json",
     ROOT / "results/cracks/reserve_results.json",
+    ROOT / "results/smeaheia/data_quality_audit.json",
+    ROOT / "results/smeaheia/benchmark_metadata.json",
+    ROOT / "results/smeaheia/results.json",
+    ROOT / "results/smeaheia/fault_object_results.json",
 ]
 
 
@@ -43,6 +47,36 @@ def main():
         print(f"{'OK' if ok else 'FAIL'} required: {path.relative_to(ROOT)}")
         if not ok:
             failures.append(f"missing required file: {path.relative_to(ROOT)}")
+    if not failures:
+        audit = json.loads(
+            (ROOT / "results/smeaheia/data_quality_audit.json").read_text(encoding="utf-8")
+        )
+        metadata = json.loads(
+            (ROOT / "results/smeaheia/benchmark_metadata.json").read_text(encoding="utf-8")
+        )
+        results = json.loads(
+            (ROOT / "results/smeaheia/results.json").read_text(encoding="utf-8")
+        )
+        objects = json.loads(
+            (ROOT / "results/smeaheia/fault_object_results.json").read_text(encoding="utf-8")
+        )
+        smeaheia_checks = {
+            "data-quality decision": audit.get("decision") == "pass",
+            "ROI locked before prediction": metadata["selection_policy"].get(
+                "locked_before_prediction"
+            )
+            is True,
+            "36 fault objects in ROI": metadata["expert_reference"].get(
+                "fault_object_count_in_roi"
+            )
+            == 36,
+            "four frozen methods": len(results.get("summaries", [])) == 4,
+            "36 object metrics": objects.get("fault_object_count") == 36,
+        }
+        for label, ok in smeaheia_checks.items():
+            print(f"{'OK' if ok else 'FAIL'} Smeaheia: {label}")
+            if not ok:
+                failures.append(f"Smeaheia verification failed: {label}")
     if failures:
         raise SystemExit("\n".join(failures))
     print("Release verification passed.")
@@ -50,4 +84,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

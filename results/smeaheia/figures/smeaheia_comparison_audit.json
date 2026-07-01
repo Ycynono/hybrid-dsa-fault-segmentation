@@ -1,0 +1,247 @@
+{
+  "survey": "Smeaheia GN1101",
+  "evidence_role": "independent sparse expert 3D validation",
+  "section_comparison": {
+    "figure": "runs\\smeaheia_frozen_external\\figures\\smeaheia_expert_method_sections.png",
+    "inline_local_index": 72,
+    "time_sample_local_index": 162,
+    "selection": "maximum expert-centreline voxel count; selected without model predictions"
+  },
+  "surface_comparison": {
+    "figure": "runs\\smeaheia_frozen_external\\figures\\smeaheia_true_3d_fault_surfaces.png",
+    "display_processing_only": "Traditional and network masks are first restricted to the same released-expert validity domain used by the metrics. Each displayed mask is then thinned on original expert-inline sections, max-pooled by 2x2x2, filtered below eight display voxels and mesh-decimated. Metrics use unmodified arrays. Full prediction extent remains visible in the section figure.",
+    "panels": {
+      "Expert interpretation": {
+        "display_grid_shape": [
+          192,
+          256,
+          320
+        ],
+        "display_grid_factors": [
+          2,
+          2,
+          2
+        ],
+        "raw_voxel_count": 67462,
+        "raw_volume_fraction": 0.0005361398061116536,
+        "display_thinning": {
+          "voxels_before_thinning": 67462,
+          "voxels_after_thinning": 64272,
+          "retained_fraction_after_thinning": 0.9527141205419347,
+          "method": "2D skeletonization independently on every first-axis seismic section"
+        },
+        "display_grid_reduction": {
+          "voxels_before_block_reduction": 64272,
+          "voxels_after_max_block_reduction": 33676,
+          "block_factors": [
+            2,
+            2,
+            2
+          ],
+          "method": "binary maximum over each display-grid block"
+        },
+        "component_filter": {
+          "components_before": 155,
+          "components_after": 155,
+          "voxels_before": 33676,
+          "voxels_after": 33676,
+          "retained_fraction": 1.0,
+          "minimum_component_voxels_on_display_grid": 8
+        },
+        "mesh": {
+          "faces_before": 260218,
+          "faces_after": 160000,
+          "retained_face_fraction_after_decimation": 0.6148690713171264,
+          "maximum_faces": 160000,
+          "preserve_topology": true
+        },
+        "mesh_file": "runs\\smeaheia_frozen_external\\figures\\surface_meshes\\expert_interpretation.vtp"
+      },
+      "Dip-steered coherence": {
+        "display_grid_shape": [
+          192,
+          256,
+          320
+        ],
+        "display_grid_factors": [
+          2,
+          2,
+          2
+        ],
+        "raw_voxel_count": 200695,
+        "raw_volume_fraction": 0.0015949805577596028,
+        "display_thinning": {
+          "voxels_before_thinning": 200695,
+          "voxels_after_thinning": 40156,
+          "retained_fraction_after_thinning": 0.20008470564787365,
+          "method": "2D skeletonization independently on every first-axis seismic section"
+        },
+        "display_grid_reduction": {
+          "voxels_before_block_reduction": 40156,
+          "voxels_after_max_block_reduction": 22052,
+          "block_factors": [
+            2,
+            2,
+            2
+          ],
+          "method": "binary maximum over each display-grid block"
+        },
+        "component_filter": {
+          "components_before": 1237,
+          "components_after": 329,
+          "voxels_before": 22052,
+          "voxels_after": 19424,
+          "retained_fraction": 0.880827135860693,
+          "minimum_component_voxels_on_display_grid": 8
+        },
+        "mesh": {
+          "faces_before": 153718,
+          "faces_after": 153718,
+          "retained_face_fraction_after_decimation": 1.0,
+          "maximum_faces": 160000,
+          "preserve_topology": true
+        },
+        "mesh_file": "runs\\smeaheia_frozen_external\\figures\\surface_meshes\\dipsteered_coherence.vtp"
+      },
+      "U-Net": {
+        "display_grid_shape": [
+          192,
+          256,
+          320
+        ],
+        "display_grid_factors": [
+          2,
+          2,
+          2
+        ],
+        "raw_voxel_count": 261492,
+        "raw_volume_fraction": 0.0020781517028808593,
+        "display_thinning": {
+          "voxels_before_thinning": 261492,
+          "voxels_after_thinning": 64597,
+          "retained_fraction_after_thinning": 0.24703241399354472,
+          "method": "2D skeletonization independently on every first-axis seismic section"
+        },
+        "display_grid_reduction": {
+          "voxels_before_block_reduction": 64597,
+          "voxels_after_max_block_reduction": 33901,
+          "block_factors": [
+            2,
+            2,
+            2
+          ],
+          "method": "binary maximum over each display-grid block"
+        },
+        "component_filter": {
+          "components_before": 940,
+          "components_after": 279,
+          "voxels_before": 33901,
+          "voxels_after": 32342,
+          "retained_fraction": 0.9540131559541016,
+          "minimum_component_voxels_on_display_grid": 8
+        },
+        "mesh": {
+          "faces_before": 245142,
+          "faces_after": 159998,
+          "retained_face_fraction_after_decimation": 0.6526747762521314,
+          "maximum_faces": 160000,
+          "preserve_topology": true
+        },
+        "mesh_file": "runs\\smeaheia_frozen_external\\figures\\surface_meshes\\unet.vtp"
+      },
+      "Hybrid DSA": {
+        "display_grid_shape": [
+          192,
+          256,
+          320
+        ],
+        "display_grid_factors": [
+          2,
+          2,
+          2
+        ],
+        "raw_voxel_count": 458996,
+        "raw_volume_fraction": 0.003647772471110026,
+        "display_thinning": {
+          "voxels_before_thinning": 458996,
+          "voxels_after_thinning": 74849,
+          "retained_fraction_after_thinning": 0.16307113787483987,
+          "method": "2D skeletonization independently on every first-axis seismic section"
+        },
+        "display_grid_reduction": {
+          "voxels_before_block_reduction": 74849,
+          "voxels_after_max_block_reduction": 39906,
+          "block_factors": [
+            2,
+            2,
+            2
+          ],
+          "method": "binary maximum over each display-grid block"
+        },
+        "component_filter": {
+          "components_before": 501,
+          "components_after": 102,
+          "voxels_before": 39906,
+          "voxels_after": 39180,
+          "retained_fraction": 0.9818072470305217,
+          "minimum_component_voxels_on_display_grid": 8
+        },
+        "mesh": {
+          "faces_before": 292798,
+          "faces_after": 160000,
+          "retained_face_fraction_after_decimation": 0.546451820026093,
+          "maximum_faces": 160000,
+          "preserve_topology": true
+        },
+        "mesh_file": "runs\\smeaheia_frozen_external\\figures\\surface_meshes\\hybrid_dsa.vtp"
+      },
+      "SwinUNETR": {
+        "display_grid_shape": [
+          192,
+          256,
+          320
+        ],
+        "display_grid_factors": [
+          2,
+          2,
+          2
+        ],
+        "raw_voxel_count": 115812,
+        "raw_volume_fraction": 0.0009203910827636719,
+        "display_thinning": {
+          "voxels_before_thinning": 115812,
+          "voxels_after_thinning": 37802,
+          "retained_fraction_after_thinning": 0.3264083169274341,
+          "method": "2D skeletonization independently on every first-axis seismic section"
+        },
+        "display_grid_reduction": {
+          "voxels_before_block_reduction": 37802,
+          "voxels_after_max_block_reduction": 20989,
+          "block_factors": [
+            2,
+            2,
+            2
+          ],
+          "method": "binary maximum over each display-grid block"
+        },
+        "component_filter": {
+          "components_before": 1655,
+          "components_after": 378,
+          "voxels_before": 20989,
+          "voxels_after": 18236,
+          "retained_fraction": 0.8688360569822288,
+          "minimum_component_voxels_on_display_grid": 8
+        },
+        "mesh": {
+          "faces_before": 144052,
+          "faces_after": 144052,
+          "retained_face_fraction_after_decimation": 1.0,
+          "maximum_faces": 160000,
+          "preserve_topology": true
+        },
+        "mesh_file": "runs\\smeaheia_frozen_external\\figures\\surface_meshes\\swinunetr.vtp"
+      }
+    }
+  },
+  "metric_comparison": "runs\\smeaheia_frozen_external\\figures\\smeaheia_metric_comparison.png"
+}

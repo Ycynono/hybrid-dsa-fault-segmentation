@@ -1,10 +1,10 @@
 # Frozen Smeaheia external 3D validation protocol
 
-## Decision
+## Decision and execution status
 
-Smeaheia is the primary candidate for the missing independent three-dimensional expert validation. The official CO2DataShare release (DOI `10.11582/2021.00012`) contains the GN1101 and TNE01 3D SEG-Y surveys and Petrel ASCII fault sticks. GN1101, rather than TNE01, is the interpretation survey for the released fault framework.
+Smeaheia was selected for the missing independent three-dimensional expert validation. The official CO2DataShare release (DOI `10.11582/2021.00012`) contains the GN1101 and TNE01 3D SEG-Y surveys and Petrel ASCII fault sticks. GN1101, rather than TNE01, is the interpretation survey for the released fault framework.
 
-The resource can address the missing independent-survey evidence only after coordinate registration and label-coverage checks pass. The fault sticks are sparse expert interpretations, not a dense voxelwise inventory. Uninterpreted voxels must not be treated as fault-negative ground truth.
+All registration and label-coverage gates subsequently passed. The frozen evaluation is reported in `results/smeaheia/`, including pooled, per-section and all-36-fault-object outputs. The fault sticks remain sparse expert interpretations, not a dense voxelwise inventory. Uninterpreted voxels are not treated as fault-negative ground truth.
 
 ## Pre-result lock
 

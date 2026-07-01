@@ -1,0 +1,58 @@
+{
+  "dataset": "smeaheia_gn1101_expert_roi_384x512x640",
+  "fault_object_count": 36,
+  "macro_object_metrics": {
+    "dip_steered_coherence": {
+      "exact_dice": 0.15729810123517016,
+      "tolerant_dice_3px": 0.4236705020839755
+    },
+    "unet": {
+      "exact_dice": 0.14360923733830006,
+      "tolerant_dice_3px": 0.3764167551908138
+    },
+    "hybrid_dsa": {
+      "exact_dice": 0.1808067187178863,
+      "tolerant_dice_3px": 0.4489235125206565
+    },
+    "swinunetr_f3chain": {
+      "exact_dice": 0.08942303437737245,
+      "tolerant_dice_3px": 0.2858582752399843
+    }
+  },
+  "hybrid_minus_unet": {
+    "exact_dice": {
+      "mean_difference": 0.037197481379586256,
+      "within_survey_fault_object_bootstrap_95_interval": [
+        0.009537024589404737,
+        0.0649176020145399
+      ]
+    },
+    "tolerant_dice_3px": {
+      "mean_difference": 0.07250675732984263,
+      "within_survey_fault_object_bootstrap_95_interval": [
+        0.028239021010247292,
+        0.11718900466838818
+      ]
+    }
+  },
+  "hybrid_minus_swinunetr": {
+    "exact_dice": {
+      "mean_difference": 0.09138368434051386,
+      "within_survey_fault_object_bootstrap_95_interval": [
+        0.05053254694141296,
+        0.13372161326348417
+      ]
+    },
+    "tolerant_dice_3px": {
+      "mean_difference": 0.16306523728067213,
+      "within_survey_fault_object_bootstrap_95_interval": [
+        0.08506148018549964,
+        0.24042340820618976
+      ]
+    }
+  },
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20260630,
+  "full_output_note": "Run fault_experiments.evaluate_smeaheia_fault_objects to regenerate per_fault_object_metrics.csv and the complete object-level JSON.",
+  "claim_boundary": "Fault objects are repeated units within one survey, not independent survey clusters."
+}

@@ -63,7 +63,7 @@ python -m fault_experiments.run_delft_frozen_external
 
 The TFL volume is an algorithmic attribute, not an independent interpretation. Its overlap with network masks must be reported as attribute agreement only.
 
-## Smeaheia GN1101 candidate audit
+## Smeaheia GN1101 independent 3D expert validation
 
 - Official source: CO2DataShare, DOI `10.11582/2021.00012`.
 - Required components: `Fault sticks`, `Reports`, and `Seismic 3D surveys`.
@@ -78,7 +78,14 @@ The official download form records country/territory and institution. The script
 python scripts/download_smeaheia.py fault_sticks reports seismic_3d --country "<country>" --affiliation "<institution>"
 ```
 
-This dataset is preregistered as an independent sparse 3D expert audit, not dense voxel truth. Before evaluation, all gates in `protocol/SMEAHEIA_VALIDATION_PROTOCOL.md` must pass. In particular, Petrel X/Y/Z picks must register to GN1101 trace headers and vertical coordinates, and voxels outside expert-stick corridors must be ignored.
+The downloaded GN1101 file and fault-stick interpretation should have SHA-256 hashes `1229da79662eed4edb62beca8582088d59a431d6f768271abcf14cbda76ba800` and `c889e8e067e2585f98ce32d173c913e464dace9b702c3335a710a81cd7b5a78f`. Run:
+
+```bash
+python -m fault_experiments.audit_smeaheia_dataset --require-segy
+python -m fault_experiments.prepare_smeaheia_benchmark
+```
+
+The reference audit matched 100% of grid-indexed picks, with horizontal p95 residual `6.06 m` (below half the `12.48 m` trace spacing) and vertical p95 residual `1.90 ms` (below half the `4 ms` sampling). The deterministic `384 x 512 x 640` ROI contains 4,691 points from 36 faults on 297 expert-active inline sections. This is independent sparse 3D expert geometry, not dense voxel truth. Petrel X/Y/Z picks must pass all gates in `protocol/SMEAHEIA_VALIDATION_PROTOCOL.md`, and voxels outside expert-stick corridors must be ignored.
 
 ## Integrity rules
 

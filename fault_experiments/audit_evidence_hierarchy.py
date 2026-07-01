@@ -28,6 +28,9 @@ def main() -> None:
             ROOT / "runs/cracks_reserve_final/swinunetr_f3chain/per_section_metrics.csv"
         ),
     }
+    smeaheia = json.loads(
+        (ROOT / "runs/smeaheia_frozen_external/results.json").read_text(encoding="utf-8")
+    )
     evidence_units = [
         {
             "dataset": "Thebe",
@@ -47,6 +50,17 @@ def main() -> None:
             "label_status": "independent expert section labels",
             "reported_units": len(cracks["U-Net"]),
             "unit_type": "2D section",
+            "independent_survey_clusters": 1,
+            "supports_within_survey_inference": True,
+            "supports_between_survey_generalization": False,
+        },
+        {
+            "dataset": "Smeaheia GN1101",
+            "survey_cluster": "Northern North Sea",
+            "role": "frozen independent sparse 3D expert-stick validation",
+            "label_status": "independently released sparse expert fault sticks",
+            "reported_units": smeaheia["expert_active_inline_sections"],
+            "unit_type": "expert-active inline section within validity corridor",
             "independent_survey_clusters": 1,
             "supports_within_survey_inference": True,
             "supports_between_survey_generalization": False,
@@ -90,13 +104,14 @@ def main() -> None:
         )
     result = {
         "purpose": "Distinguish reported observational units from independent survey clusters",
-        "expert_labelled_survey_clusters": 2,
+        "expert_labelled_survey_clusters": 3,
         "unlabelled_external_stress_test_clusters": 2,
         "survey_level_confidence_interval_estimable": False,
-        "reason": "Only two expert-labelled survey clusters are available and they have different adaptation and annotation roles; block/section resampling cannot estimate broad between-survey variance.",
+        "reason": "Only three expert-labelled survey clusters are available and they have different adaptation and annotation roles; block/section/object resampling cannot estimate broad between-survey variance.",
         "permitted_claims": [
             "within-Thebe paired block comparison",
             "within-CRACKS paired section comparison under the sealed protocol",
+            "within-Smeaheia sparse expert-corridor section and fault-object comparison",
             "descriptive model failure on fixed FORCE and Delft ROIs",
         ],
         "claims_not_supported": [
@@ -116,6 +131,9 @@ def main() -> None:
             "CRACKS_reserve_macro_exact_Dice": {
                 name: float(values.mean()) for name, values in cracks_exact.items()
             },
+            "Smeaheia_pooled_sparse_corridor_exact_Dice": {
+                row["model"]: row["dice"] for row in smeaheia["summaries"]
+            },
         },
     }
     (OUTPUT / "evidence_hierarchy.json").write_text(
@@ -130,4 +148,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

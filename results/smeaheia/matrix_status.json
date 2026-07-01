@@ -1,0 +1,23 @@
+[
+  {
+    "model": "unet",
+    "checkpoint": "runs\\thebe_adaptation\\unet3d_e8\\best.pt",
+    "threshold": 0.5,
+    "status": "complete",
+    "returncode": 0
+  },
+  {
+    "model": "hybrid_dsa",
+    "checkpoint": "runs\\thebe_adaptation\\dsa_hybrid_replay_e8\\best.pt",
+    "threshold": 0.15,
+    "status": "complete",
+    "returncode": 0
+  },
+  {
+    "model": "swinunetr_f3chain",
+    "checkpoint": "runs\\thebe_adaptation\\swin_unetr_f3chain_e8\\best.pt",
+    "threshold": 0.4,
+    "status": "complete",
+    "returncode": 0
+  }
+]

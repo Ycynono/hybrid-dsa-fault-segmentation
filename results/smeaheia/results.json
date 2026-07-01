@@ -1,0 +1,647 @@
+{
+  "dataset": "smeaheia_gn1101_expert_roi_384x512x640",
+  "data_role": "independent sparse 3D expert validation; no training or threshold selection",
+  "evaluation_policy": "Evaluate only on released expert inline sections and their 2D validity corridors. All other voxels are ignored because released sticks are not an exhaustive fault inventory.",
+  "expert_active_inline_sections": 297,
+  "summaries": [
+    {
+      "model": "dip_steered_coherence",
+      "tp": 43962,
+      "fp": 156792,
+      "fn": 202746,
+      "precision": 0.21898442870378673,
+      "recall": 0.17819446471131864,
+      "dice": 0.19649489789077063,
+      "iou": 0.10895167286245352,
+      "brier": 0.15438093044048137,
+      "ece_15_bins": 0.14761346694443275,
+      "reliability": [
+        {
+          "bin": 0,
+          "count": 1557710,
+          "mean_probability": 0.010547680518714578,
+          "positive_fraction": 0.1580178595502372
+        },
+        {
+          "bin": 1,
+          "count": 1479,
+          "mean_probability": 0.07932197410887847,
+          "positive_fraction": 0.37660581473968896
+        },
+        {
+          "bin": 2,
+          "count": 11,
+          "mean_probability": 0.13979270241477273,
+          "positive_fraction": 0.45454545454545453
+        },
+        {
+          "bin": 3,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 4,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 5,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 6,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 7,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 8,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 9,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 10,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 11,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 12,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 13,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        },
+        {
+          "bin": 14,
+          "count": 0,
+          "mean_probability": null,
+          "positive_fraction": null
+        }
+      ],
+      "histogram_auprc_400_bins": 0.19861779143797542,
+      "valid_voxels": 1559200,
+      "truth_voxels": 246708,
+      "predicted_voxels_in_validity": 200754,
+      "predicted_fraction_in_validity": 0.12875448948178553,
+      "tolerance_pixels_on_expert_inline_sections": 3,
+      "tolerant_precision_3px": 0.640035875333217,
+      "tolerant_recall_3px": 0.4029743664575125,
+      "tolerant_dice_3px": 0.49456475313160253,
+      "mean_symmetric_distance_pixels": 12.485056893056951,
+      "p95_symmetric_distance_pixels": 43.382023926967726,
+      "macro_section_dice": 0.1825292843795324,
+      "macro_section_tolerant_dice_3px": 0.4656992827253708,
+      "runtime_seconds": 25.80136310000671,
+      "threshold": 0.019999999552965164,
+      "threshold_source": "Thebe val1-val2 only; transferred unchanged to Smeaheia"
+    },
+    {
+      "model": "hybrid_dsa",
+      "tp": 99969,
+      "fp": 359058,
+      "fn": 146739,
+      "precision": 0.217784574763576,
+      "recall": 0.40521182936913275,
+      "dice": 0.28330463984356735,
+      "iou": 0.16502907063123384,
+      "brier": 0.16298497438792361,
+      "ece_15_bins": 0.14131185451643843,
+      "reliability": [
+        {
+          "bin": 0,
+          "count": 961611,
+          "mean_probability": 0.014965007079103929,
+          "positive_fraction": 0.1298404448368415
+        },
+        {
+          "bin": 1,
+          "count": 118824,
+          "mean_probability": 0.09562659168904745,
+          "positive_fraction": 0.1585201642765771
+        },
+        {
+          "bin": 2,
+          "count": 72231,
+          "mean_probability": 0.16542903989241114,
+          "positive_fraction": 0.1641815840843959
+        },
+        {
+          "bin": 3,
+          "count": 64711,
+          "mean_probability": 0.23329055474170737,
+          "positive_fraction": 0.17771321722736474
+        },
+        {
+          "bin": 4,
+          "count": 60216,
+          "mean_probability": 0.2992599079836028,
+          "positive_fraction": 0.20142487046632124
+        },
+        {
+          "bin": 5,
+          "count": 50777,
+          "mean_probability": 0.36569681754903793,
+          "positive_fraction": 0.2140142190361778
+        },
+        {
+          "bin": 6,
+          "count": 44166,
+          "mean_probability": 0.43255807878055236,
+          "positive_fraction": 0.21686365077208714
+        },
+        {
+          "bin": 7,
+          "count": 39083,
+          "mean_probability": 0.49922298277863775,
+          "positive_fraction": 0.21833022030038635
+        },
+        {
+          "bin": 8,
+          "count": 34647,
+          "mean_probability": 0.5660595473408593,
+          "positive_fraction": 0.23621092735301757
+        },
+        {
+          "bin": 9,
+          "count": 30600,
+          "mean_probability": 0.6324672085631128,
+          "positive_fraction": 0.24369281045751634
+        },
+        {
+          "bin": 10,
+          "count": 26585,
+          "mean_probability": 0.6991831367841358,
+          "positive_fraction": 0.25815309384991536
+        },
+        {
+          "bin": 11,
+          "count": 23338,
+          "mean_probability": 0.7659697343455416,
+          "positive_fraction": 0.27740166252463794
+        },
+        {
+          "bin": 12,
+          "count": 21000,
+          "mean_probability": 0.8319071103050595,
+          "positive_fraction": 0.2934761904761905
+        },
+        {
+          "bin": 13,
+          "count": 10109,
+          "mean_probability": 0.8920903750680087,
+          "positive_fraction": 0.3031951726184588
+        },
+        {
+          "bin": 14,
+          "count": 1302,
+          "mean_probability": 0.9542789488527266,
+          "positive_fraction": 0.2642089093701997
+        }
+      ],
+      "histogram_auprc_400_bins": 0.21243928615227564,
+      "valid_voxels": 1559200,
+      "truth_voxels": 246708,
+      "predicted_voxels_in_validity": 459027,
+      "predicted_fraction_in_validity": 0.2943990507952796,
+      "tolerance_pixels_on_expert_inline_sections": 3,
+      "tolerant_precision_3px": 0.6154607011825811,
+      "tolerant_recall_3px": 0.5554907015581173,
+      "tolerant_dice_3px": 0.5839400266845592,
+      "mean_symmetric_distance_pixels": 9.574256533136097,
+      "p95_symmetric_distance_pixels": 31.0,
+      "macro_section_dice": 0.2289390761522916,
+      "macro_section_tolerant_dice_3px": 0.5143297780467609,
+      "runtime_seconds": 43.44856679998338,
+      "threshold": 0.15,
+      "threshold_source": "Thebe val1-val2 only; frozen before Smeaheia download and ROI selection"
+    },
+    {
+      "model": "swinunetr_f3chain",
+      "tp": 34864,
+      "fp": 80940,
+      "fn": 211844,
+      "precision": 0.3010604124209872,
+      "recall": 0.14131686041798402,
+      "dice": 0.1923467361080461,
+      "iou": 0.1064068756714523,
+      "brier": 0.14267856556540093,
+      "ece_15_bins": 0.08852261791000955,
+      "reliability": [
+        {
+          "bin": 0,
+          "count": 803199,
+          "mean_probability": 0.030444526094378577,
+          "positive_fraction": 0.1224017958189689
+        },
+        {
+          "bin": 1,
+          "count": 308715,
+          "mean_probability": 0.09517447946718151,
+          "positive_fraction": 0.15101630954116257
+        },
+        {
+          "bin": 2,
+          "count": 147806,
+          "mean_probability": 0.1633618811884328,
+          "positive_fraction": 0.17906580247080633
+        },
+        {
+          "bin": 3,
+          "count": 86520,
+          "mean_probability": 0.2308467320033482,
+          "positive_fraction": 0.20641470180305133
+        },
+        {
+          "bin": 4,
+          "count": 57413,
+          "mean_probability": 0.29802647899049434,
+          "positive_fraction": 0.22808423179419296
+        },
+        {
+          "bin": 5,
+          "count": 39743,
+          "mean_probability": 0.3648376549309784,
+          "positive_fraction": 0.2387590267468485
+        },
+        {
+          "bin": 6,
+          "count": 29415,
+          "mean_probability": 0.4318708550457887,
+          "positive_fraction": 0.2575556688764236
+        },
+        {
+          "bin": 7,
+          "count": 22465,
+          "mean_probability": 0.49847156992474406,
+          "positive_fraction": 0.26579123080347206
+        },
+        {
+          "bin": 8,
+          "count": 17412,
+          "mean_probability": 0.5651320412108028,
+          "positive_fraction": 0.2776246266942339
+        },
+        {
+          "bin": 9,
+          "count": 13720,
+          "mean_probability": 0.6317552927979228,
+          "positive_fraction": 0.30167638483965015
+        },
+        {
+          "bin": 10,
+          "count": 10591,
+          "mean_probability": 0.6987228155833963,
+          "positive_fraction": 0.3137569634595411
+        },
+        {
+          "bin": 11,
+          "count": 8423,
+          "mean_probability": 0.7652496442961237,
+          "positive_fraction": 0.3414460406031105
+        },
+        {
+          "bin": 12,
+          "count": 6556,
+          "mean_probability": 0.8319677942914887,
+          "positive_fraction": 0.39490543014032947
+        },
+        {
+          "bin": 13,
+          "count": 4905,
+          "mean_probability": 0.8969851992545872,
+          "positive_fraction": 0.454434250764526
+        },
+        {
+          "bin": 14,
+          "count": 2317,
+          "mean_probability": 0.9575170023872465,
+          "positive_fraction": 0.5727233491583945
+        }
+      ],
+      "histogram_auprc_400_bins": 0.23315746345619365,
+      "valid_voxels": 1559200,
+      "truth_voxels": 246708,
+      "predicted_voxels_in_validity": 115804,
+      "predicted_fraction_in_validity": 0.07427142124166239,
+      "tolerance_pixels_on_expert_inline_sections": 3,
+      "tolerant_precision_3px": 0.7347511484129451,
+      "tolerant_recall_3px": 0.3623230701882387,
+      "tolerant_dice_3px": 0.48532230072228083,
+      "mean_symmetric_distance_pixels": 15.787026510740843,
+      "p95_symmetric_distance_pixels": 49.01020301937138,
+      "macro_section_dice": 0.13196276014446226,
+      "macro_section_tolerant_dice_3px": 0.37309942619756803,
+      "runtime_seconds": 20.45575349999126,
+      "threshold": 0.4,
+      "threshold_source": "Thebe val1-val2 only; frozen before Smeaheia download and ROI selection"
+    },
+    {
+      "model": "unet",
+      "tp": 60980,
+      "fp": 200603,
+      "fn": 185728,
+      "precision": 0.23311912471376198,
+      "recall": 0.24717479773659548,
+      "dice": 0.23994129347165305,
+      "iou": 0.13632573310291946,
+      "brier": 0.17649214581234102,
+      "ece_15_bins": 0.1607720205356382,
+      "reliability": [
+        {
+          "bin": 0,
+          "count": 723803,
+          "mean_probability": 0.010500159846040837,
+          "positive_fraction": 0.12488480981703586
+        },
+        {
+          "bin": 1,
+          "count": 156849,
+          "mean_probability": 0.09623217651560975,
+          "positive_fraction": 0.13560175710396624
+        },
+        {
+          "bin": 2,
+          "count": 95898,
+          "mean_probability": 0.16525864089481793,
+          "positive_fraction": 0.15970093224050555
+        },
+        {
+          "bin": 3,
+          "count": 113043,
+          "mean_probability": 0.23724894418461062,
+          "positive_fraction": 0.15131410171350726
+        },
+        {
+          "bin": 4,
+          "count": 77620,
+          "mean_probability": 0.29653587351137756,
+          "positive_fraction": 0.19777119299149704
+        },
+        {
+          "bin": 5,
+          "count": 56048,
+          "mean_probability": 0.365877352406085,
+          "positive_fraction": 0.20700114187838994
+        },
+        {
+          "bin": 6,
+          "count": 50226,
+          "mean_probability": 0.43291632368569066,
+          "positive_fraction": 0.200732688249114
+        },
+        {
+          "bin": 7,
+          "count": 48444,
+          "mean_probability": 0.4999803655380439,
+          "positive_fraction": 0.19329535133349848
+        },
+        {
+          "bin": 8,
+          "count": 48765,
+          "mean_probability": 0.5669300371520302,
+          "positive_fraction": 0.19651389316107865
+        },
+        {
+          "bin": 9,
+          "count": 53635,
+          "mean_probability": 0.6338962777191899,
+          "positive_fraction": 0.20950871632329635
+        },
+        {
+          "bin": 10,
+          "count": 53226,
+          "mean_probability": 0.6992079341657508,
+          "positive_fraction": 0.22917371209559237
+        },
+        {
+          "bin": 11,
+          "count": 40812,
+          "mean_probability": 0.7646350256779563,
+          "positive_fraction": 0.26612270900715473
+        },
+        {
+          "bin": 12,
+          "count": 30254,
+          "mean_probability": 0.8323641572963493,
+          "positive_fraction": 0.2886560454815892
+        },
+        {
+          "bin": 13,
+          "count": 10559,
+          "mean_probability": 0.8838883002651766,
+          "positive_fraction": 0.34217255421914955
+        },
+        {
+          "bin": 14,
+          "count": 18,
+          "mean_probability": 0.93701171875,
+          "positive_fraction": 0.16666666666666666
+        }
+      ],
+      "histogram_auprc_400_bins": 0.21077043536688334,
+      "valid_voxels": 1559200,
+      "truth_voxels": 246708,
+      "predicted_voxels_in_validity": 261583,
+      "predicted_fraction_in_validity": 0.1677674448435095,
+      "tolerance_pixels_on_expert_inline_sections": 3,
+      "tolerant_precision_3px": 0.6027450170559712,
+      "tolerant_recall_3px": 0.4469210564716183,
+      "tolerant_dice_3px": 0.5132669266910013,
+      "mean_symmetric_distance_pixels": 13.366793740671879,
+      "p95_symmetric_distance_pixels": 50.774009099144415,
+      "macro_section_dice": 0.1928337732262705,
+      "macro_section_tolerant_dice_3px": 0.45249835777214686,
+      "runtime_seconds": 7.178235900006257,
+      "threshold": 0.5,
+      "threshold_source": "Thebe val1-val2 only; frozen before Smeaheia download and ROI selection"
+    }
+  ],
+  "paired_within_survey_section_bootstrap": [
+    {
+      "first_model": "dip_steered_coherence",
+      "second_model": "hybrid_dsa",
+      "metric": "dice",
+      "mean_difference_first_minus_second": -0.046409791772759196,
+      "within_survey_section_bootstrap_95_interval": [
+        -0.061365640677870294,
+        -0.03193923490920035
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "dip_steered_coherence",
+      "second_model": "hybrid_dsa",
+      "metric": "tolerant_dice_3px",
+      "mean_difference_first_minus_second": -0.04863049532139007,
+      "within_survey_section_bootstrap_95_interval": [
+        -0.07442890349713908,
+        -0.02276523900023901
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "dip_steered_coherence",
+      "second_model": "swinunetr_f3chain",
+      "metric": "dice",
+      "mean_difference_first_minus_second": 0.05056652423507013,
+      "within_survey_section_bootstrap_95_interval": [
+        0.03565944244796999,
+        0.0649728940252833
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "dip_steered_coherence",
+      "second_model": "swinunetr_f3chain",
+      "metric": "tolerant_dice_3px",
+      "mean_difference_first_minus_second": 0.09259985652780277,
+      "within_survey_section_bootstrap_95_interval": [
+        0.06387193687647026,
+        0.12086467484003134
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "dip_steered_coherence",
+      "second_model": "unet",
+      "metric": "dice",
+      "mean_difference_first_minus_second": -0.010304488846738085,
+      "within_survey_section_bootstrap_95_interval": [
+        -0.02198894632992396,
+        0.0011301695664572052
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "dip_steered_coherence",
+      "second_model": "unet",
+      "metric": "tolerant_dice_3px",
+      "mean_difference_first_minus_second": 0.013200924953224055,
+      "within_survey_section_bootstrap_95_interval": [
+        -0.008248491271174531,
+        0.034778451708480596
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "hybrid_dsa",
+      "second_model": "swinunetr_f3chain",
+      "metric": "dice",
+      "mean_difference_first_minus_second": 0.09697631600782933,
+      "within_survey_section_bootstrap_95_interval": [
+        0.08326411372851698,
+        0.11060771367072339
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "hybrid_dsa",
+      "second_model": "swinunetr_f3chain",
+      "metric": "tolerant_dice_3px",
+      "mean_difference_first_minus_second": 0.14123035184919283,
+      "within_survey_section_bootstrap_95_interval": [
+        0.11714295111823601,
+        0.16517427797011808
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "hybrid_dsa",
+      "second_model": "unet",
+      "metric": "dice",
+      "mean_difference_first_minus_second": 0.03610530292602111,
+      "within_survey_section_bootstrap_95_interval": [
+        0.02415780333035619,
+        0.047553878642480604
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "hybrid_dsa",
+      "second_model": "unet",
+      "metric": "tolerant_dice_3px",
+      "mean_difference_first_minus_second": 0.061831420274614114,
+      "within_survey_section_bootstrap_95_interval": [
+        0.042835953483392496,
+        0.08060986221156359
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "swinunetr_f3chain",
+      "second_model": "unet",
+      "metric": "dice",
+      "mean_difference_first_minus_second": -0.060871013081808215,
+      "within_survey_section_bootstrap_95_interval": [
+        -0.07538974314962463,
+        -0.04634588085523536
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    },
+    {
+      "first_model": "swinunetr_f3chain",
+      "second_model": "unet",
+      "metric": "tolerant_dice_3px",
+      "mean_difference_first_minus_second": -0.07939893157457871,
+      "within_survey_section_bootstrap_95_interval": [
+        -0.10793303920978885,
+        -0.051700700977452864
+      ],
+      "section_count": 297,
+      "bootstrap_replicates": 10000,
+      "warning": "Sections are repeated units from one survey, not independent survey clusters."
+    }
+  ],
+  "claim_boundary": "This is one independent field survey with sparse expert sticks. It strengthens external 3D validation but is not dense exhaustive truth or a survey-population estimate."
+}

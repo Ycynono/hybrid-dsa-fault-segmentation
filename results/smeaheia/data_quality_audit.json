@@ -1,0 +1,532 @@
+{
+  "dataset": "Smeaheia GN1101",
+  "provider": "Gassnova and Equinor via CO2DataShare",
+  "doi": "10.11582/2021.00012",
+  "fault_sticks": {
+    "path": "external_data\\smeaheia\\fault_sticks\\Fault_Sticks\\data\\fault_Sticks_GN1101_2012",
+    "sha256": "c889e8e067e2585f98ce32d173c913e464dace9b702c3335a710a81cd7b5a78f",
+    "encoding": "cp1252",
+    "point_count": 11905,
+    "malformed_line_count": 0,
+    "points_with_inline_crossline": 11682,
+    "points_with_xy_only": 223,
+    "fault_object_count": 84,
+    "fault_stick_count": 2657,
+    "ranges": {
+      "inline": {
+        "min": 980.0,
+        "max": 1556.0,
+        "unique": 496
+      },
+      "crossline": {
+        "min": 1858.0,
+        "max": 5770.0,
+        "unique": 1558
+      },
+      "x_m": {
+        "min": 554070.76866,
+        "max": 576364.94468,
+        "unique": 11600
+      },
+      "y_m": {
+        "min": 6717553.18447,
+        "max": 6740542.46796,
+        "unique": 11600
+      },
+      "z": {
+        "min": 637.72038,
+        "max": 3016.17407,
+        "unique": 8991
+      }
+    },
+    "faults": [
+      {
+        "name": "Main_fault_west",
+        "point_count": 1370,
+        "stick_count": 218
+      },
+      {
+        "name": "脴ygarden_1",
+        "point_count": 1340,
+        "stick_count": 124
+      },
+      {
+        "name": "Fault_interpretation_1",
+        "point_count": 630,
+        "stick_count": 103
+      },
+      {
+        "name": "Fault_interpretation_23",
+        "point_count": 613,
+        "stick_count": 141
+      },
+      {
+        "name": "Fault_interpretation_3",
+        "point_count": 425,
+        "stick_count": 54
+      },
+      {
+        "name": "Fault_interpretation_25",
+        "point_count": 405,
+        "stick_count": 84
+      },
+      {
+        "name": "Fault_interpretation_82",
+        "point_count": 312,
+        "stick_count": 65
+      },
+      {
+        "name": "Fault_interpretation_38",
+        "point_count": 260,
+        "stick_count": 56
+      },
+      {
+        "name": "Fault_interpretation_6",
+        "point_count": 254,
+        "stick_count": 55
+      },
+      {
+        "name": "Fault_interpretation_79",
+        "point_count": 213,
+        "stick_count": 69
+      },
+      {
+        "name": "Fault_interpretation_26",
+        "point_count": 211,
+        "stick_count": 20
+      },
+      {
+        "name": "Fault_interpretation_36",
+        "point_count": 206,
+        "stick_count": 61
+      },
+      {
+        "name": "Fault_interpretation_41",
+        "point_count": 195,
+        "stick_count": 63
+      },
+      {
+        "name": "Fault_interpretation_61",
+        "point_count": 194,
+        "stick_count": 48
+      },
+      {
+        "name": "Fault_interpretation_19",
+        "point_count": 191,
+        "stick_count": 30
+      },
+      {
+        "name": "Fault_interpretation_81",
+        "point_count": 172,
+        "stick_count": 49
+      },
+      {
+        "name": "Fault_interpretation_34",
+        "point_count": 159,
+        "stick_count": 41
+      },
+      {
+        "name": "Fault_interpretation_42",
+        "point_count": 159,
+        "stick_count": 47
+      },
+      {
+        "name": "Fault_interpretation_76",
+        "point_count": 157,
+        "stick_count": 56
+      },
+      {
+        "name": "Fault_interpretation_32",
+        "point_count": 149,
+        "stick_count": 39
+      },
+      {
+        "name": "Fault_interpretation_5",
+        "point_count": 144,
+        "stick_count": 28
+      },
+      {
+        "name": "Fault_interpretation_57",
+        "point_count": 132,
+        "stick_count": 39
+      },
+      {
+        "name": "Fault_interpretation_56",
+        "point_count": 131,
+        "stick_count": 45
+      },
+      {
+        "name": "Fault_interpretation_15",
+        "point_count": 130,
+        "stick_count": 20
+      },
+      {
+        "name": "Fault_interpretation_35",
+        "point_count": 127,
+        "stick_count": 34
+      },
+      {
+        "name": "Fault_interpretation_62",
+        "point_count": 122,
+        "stick_count": 24
+      },
+      {
+        "name": "Fault_interpretation_55",
+        "point_count": 121,
+        "stick_count": 35
+      },
+      {
+        "name": "Fault_interpretation_8",
+        "point_count": 117,
+        "stick_count": 29
+      },
+      {
+        "name": "Fault_interpretation_58",
+        "point_count": 113,
+        "stick_count": 39
+      },
+      {
+        "name": "Fault_interpretation_60",
+        "point_count": 112,
+        "stick_count": 28
+      },
+      {
+        "name": "Fault_interpretation_67",
+        "point_count": 112,
+        "stick_count": 35
+      },
+      {
+        "name": "Fault_interpretation_13",
+        "point_count": 110,
+        "stick_count": 26
+      },
+      {
+        "name": "Fault_interpretation_53",
+        "point_count": 110,
+        "stick_count": 40
+      },
+      {
+        "name": "Fault_interpretation_4",
+        "point_count": 108,
+        "stick_count": 19
+      },
+      {
+        "name": "Fault_interpretation_72",
+        "point_count": 103,
+        "stick_count": 29
+      },
+      {
+        "name": "Fault_interpretation_17",
+        "point_count": 101,
+        "stick_count": 29
+      },
+      {
+        "name": "Fault_interpretation_80",
+        "point_count": 99,
+        "stick_count": 39
+      },
+      {
+        "name": "Fault_interpretation_39",
+        "point_count": 97,
+        "stick_count": 30
+      },
+      {
+        "name": "Fault_interpretation_29",
+        "point_count": 95,
+        "stick_count": 22
+      },
+      {
+        "name": "Fault_interpretation_9",
+        "point_count": 94,
+        "stick_count": 14
+      },
+      {
+        "name": "Fault_interpretation_37",
+        "point_count": 92,
+        "stick_count": 29
+      },
+      {
+        "name": "Fault_interpretation_45",
+        "point_count": 92,
+        "stick_count": 27
+      },
+      {
+        "name": "Fault_interpretation_2",
+        "point_count": 91,
+        "stick_count": 12
+      },
+      {
+        "name": "Fault_interpretation_47",
+        "point_count": 87,
+        "stick_count": 24
+      },
+      {
+        "name": "Fault_interpretation_7",
+        "point_count": 83,
+        "stick_count": 16
+      },
+      {
+        "name": "Fault_interpretation_71",
+        "point_count": 82,
+        "stick_count": 27
+      },
+      {
+        "name": "Fault_interpretation_12",
+        "point_count": 79,
+        "stick_count": 19
+      },
+      {
+        "name": "Fault_interpretation_22",
+        "point_count": 75,
+        "stick_count": 17
+      },
+      {
+        "name": "Fault_interpretation_49",
+        "point_count": 70,
+        "stick_count": 26
+      },
+      {
+        "name": "Fault_interpretation_14",
+        "point_count": 63,
+        "stick_count": 13
+      },
+      {
+        "name": "Fault_interpretation_63",
+        "point_count": 60,
+        "stick_count": 24
+      },
+      {
+        "name": "Fault_interpretation_74",
+        "point_count": 59,
+        "stick_count": 17
+      },
+      {
+        "name": "Fault_interpretation_24",
+        "point_count": 55,
+        "stick_count": 19
+      },
+      {
+        "name": "Fault_interpretation_10",
+        "point_count": 54,
+        "stick_count": 13
+      },
+      {
+        "name": "Fault_interpretation_70",
+        "point_count": 48,
+        "stick_count": 16
+      },
+      {
+        "name": "Fault_interpretation_52",
+        "point_count": 48,
+        "stick_count": 15
+      },
+      {
+        "name": "Fault_interpretation_44",
+        "point_count": 45,
+        "stick_count": 15
+      },
+      {
+        "name": "Fault_interpretation_59",
+        "point_count": 45,
+        "stick_count": 21
+      },
+      {
+        "name": "Fault_interpretation_11",
+        "point_count": 43,
+        "stick_count": 11
+      },
+      {
+        "name": "Fault_interpretation_40",
+        "point_count": 43,
+        "stick_count": 17
+      },
+      {
+        "name": "Fault_interpretation_66",
+        "point_count": 40,
+        "stick_count": 16
+      },
+      {
+        "name": "Fault_interpretation_27",
+        "point_count": 38,
+        "stick_count": 14
+      },
+      {
+        "name": "Fault_interpretation_43",
+        "point_count": 38,
+        "stick_count": 11
+      },
+      {
+        "name": "Fault_interpretation_50",
+        "point_count": 37,
+        "stick_count": 14
+      },
+      {
+        "name": "Fault_interpretation_54",
+        "point_count": 37,
+        "stick_count": 16
+      },
+      {
+        "name": "Fault_interpretation_33",
+        "point_count": 34,
+        "stick_count": 12
+      },
+      {
+        "name": "Fault_interpretation_65",
+        "point_count": 33,
+        "stick_count": 11
+      },
+      {
+        "name": "Fault_interpretation_21",
+        "point_count": 32,
+        "stick_count": 10
+      },
+      {
+        "name": "Fault_interpretation_51",
+        "point_count": 32,
+        "stick_count": 11
+      },
+      {
+        "name": "Fault_interpretation_68",
+        "point_count": 31,
+        "stick_count": 10
+      },
+      {
+        "name": "Fault_interpretation_77",
+        "point_count": 31,
+        "stick_count": 10
+      },
+      {
+        "name": "Fault_interpretation_73",
+        "point_count": 30,
+        "stick_count": 15
+      },
+      {
+        "name": "Fault_interpretation_64",
+        "point_count": 28,
+        "stick_count": 8
+      },
+      {
+        "name": "Fault_interpretation_69",
+        "point_count": 28,
+        "stick_count": 12
+      },
+      {
+        "name": "Fault_interpretation_18",
+        "point_count": 27,
+        "stick_count": 10
+      },
+      {
+        "name": "Fault_interpretation_75",
+        "point_count": 27,
+        "stick_count": 9
+      },
+      {
+        "name": "Fault_interpretation_16",
+        "point_count": 26,
+        "stick_count": 8
+      },
+      {
+        "name": "Fault_interpretation_30",
+        "point_count": 26,
+        "stick_count": 6
+      },
+      {
+        "name": "Fault_interpretation_28",
+        "point_count": 24,
+        "stick_count": 6
+      },
+      {
+        "name": "Fault_interpretation_78",
+        "point_count": 23,
+        "stick_count": 11
+      },
+      {
+        "name": "Fault_interpretation_46",
+        "point_count": 21,
+        "stick_count": 10
+      },
+      {
+        "name": "Fault_interpretation_48",
+        "point_count": 20,
+        "stick_count": 8
+      },
+      {
+        "name": "Fault_interpretation_20",
+        "point_count": 19,
+        "stick_count": 6
+      },
+      {
+        "name": "Fault_interpretation_31",
+        "point_count": 16,
+        "stick_count": 8
+      }
+    ],
+    "interpretation_note": "The provider file contains sparse expert fault sticks. Missing inline/crossline sentinels retain valid X/Y/Z coordinates and must be registered spatially rather than discarded."
+  },
+  "seismic": {
+    "path": "external_data\\smeaheia\\seismic_3d\\Seismic_3D_Surveys\\data\\GN1101_Scaled(Realized)",
+    "sha256": "1229da79662eed4edb62beca8582088d59a431d6f768271abcf14cbda76ba800",
+    "trace_count": 1427517,
+    "sample_count": 1251,
+    "sample_start": 0.0,
+    "sample_end": 5000.0,
+    "sample_interval": 4.0,
+    "inline_range": [
+      976,
+      1556
+    ],
+    "crossline_range": [
+      1674,
+      6586
+    ],
+    "expert_grid_match_fraction": 1.0,
+    "coordinate_candidates": {
+      "CDP_X_CDP_Y": {
+        "nonzero_coordinate_fraction": 1.0,
+        "expert_trace_xy_residual_m": {
+          "count": 11682,
+          "median": 3.21276633762158,
+          "p95": 6.057921656747817,
+          "max": 13.11306679392778
+        },
+        "median_crossline_spacing_m": 12.481185841060055
+      },
+      "SourceX_SourceY": {
+        "nonzero_coordinate_fraction": 1.0,
+        "expert_trace_xy_residual_m": {
+          "count": 11682,
+          "median": 3.21276633762158,
+          "p95": 6.057921656747817,
+          "max": 13.11306679392778
+        },
+        "median_crossline_spacing_m": 12.481185841060055
+      },
+      "GroupX_GroupY": {
+        "nonzero_coordinate_fraction": 0.0,
+        "expert_trace_xy_residual_m": {
+          "count": 11682,
+          "median": 6753507.1444996465,
+          "p95": 6763584.278201059,
+          "max": 6764898.444275926
+        },
+        "median_crossline_spacing_m": null
+      }
+    },
+    "selected_coordinate_headers": "CDP_X_CDP_Y",
+    "vertical": {
+      "expert_z_overlap_fraction": 1.0,
+      "expert_z_to_nearest_sample_residual": {
+        "count": 11905,
+        "median": 0.9992500000000746,
+        "p95": 1.8949800000000323,
+        "max": 1.999960000000101
+      }
+    },
+    "quality_gates": {
+      "inline_crossline_match_at_least_95_percent": true,
+      "xy_p95_below_half_trace_spacing": true,
+      "z_within_sample_axis_and_half_sample": true
+    }
+  },
+  "decision": "pass"
+}
