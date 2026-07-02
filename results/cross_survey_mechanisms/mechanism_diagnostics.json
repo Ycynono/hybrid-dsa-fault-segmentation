@@ -1,0 +1,122 @@
+{
+  "scope": "Mechanism-oriented diagnostics for frozen cross-survey activation failure",
+  "descriptor_caveat": "Frequencies are normalized to Nyquist because physical sample intervals are not verified for every survey. Axis lineation is a directional image-texture proxy and cannot by itself establish acquisition footprint.",
+  "descriptors": [
+    {
+      "survey": "Synthetic",
+      "spectral_centroid_nyquist": 0.334504942735391,
+      "high_frequency_power_fraction": 0.06883452832698822,
+      "deep_to_shallow_highpass_ratio": 0.0608261413872242,
+      "lateral_incoherence": 0.09720340371131897,
+      "lateral_to_vertical_gradient_ratio": 0.6361764371395111,
+      "axis_lineation_proxy": 1.7666874637270902
+    },
+    {
+      "survey": "F3",
+      "spectral_centroid_nyquist": 0.41128520796136314,
+      "high_frequency_power_fraction": 0.3035168945789337,
+      "deep_to_shallow_highpass_ratio": 0.41226309537887573,
+      "lateral_incoherence": 0.08680877089500427,
+      "lateral_to_vertical_gradient_ratio": 0.35073284804821014,
+      "axis_lineation_proxy": 2.6736292371701653
+    },
+    {
+      "survey": "Thebe",
+      "spectral_centroid_nyquist": 0.2692158916042163,
+      "high_frequency_power_fraction": 0.029077032580971718,
+      "deep_to_shallow_highpass_ratio": 0.9931029081344604,
+      "lateral_incoherence": 0.13127315044403076,
+      "lateral_to_vertical_gradient_ratio": 0.5164739787578583,
+      "axis_lineation_proxy": 2.4238502136685627
+    },
+    {
+      "survey": "FORCE",
+      "spectral_centroid_nyquist": 0.19837402443658902,
+      "high_frequency_power_fraction": 0.004088940564543009,
+      "deep_to_shallow_highpass_ratio": 16.501934051513672,
+      "lateral_incoherence": 0.00977352261543274,
+      "lateral_to_vertical_gradient_ratio": 0.27681615948677063,
+      "axis_lineation_proxy": 2.8966908099075734
+    },
+    {
+      "survey": "Delft",
+      "spectral_centroid_nyquist": 0.1752953137813978,
+      "high_frequency_power_fraction": 0.003315187059342861,
+      "deep_to_shallow_highpass_ratio": 2.1089653968811035,
+      "lateral_incoherence": 0.035354942083358765,
+      "lateral_to_vertical_gradient_ratio": 0.4266326278448105,
+      "axis_lineation_proxy": 3.5851089506686105
+    }
+  ],
+  "attribution": {
+    "method": "Grad-CAM-style positive attribution of the mean top 0.1% output logits on a fixed central 64^3 patch. Maps explain model sensitivity and are not accuracy or causal-geology evidence.",
+    "models": {
+      "Hybrid DSA": {
+        "FORCE": {
+          "patch_starts": [
+            160,
+            224,
+            32
+          ],
+          "patch_shape": [
+            64,
+            64,
+            64
+          ],
+          "top_logit_score": -1.9819177389144897,
+          "probability_mean": 0.009168388321995735,
+          "probability_p99": 0.06411940604448318
+        },
+        "Delft": {
+          "patch_starts": [
+            160,
+            160,
+            32
+          ],
+          "patch_shape": [
+            64,
+            64,
+            64
+          ],
+          "top_logit_score": 1.939898133277893,
+          "probability_mean": 0.11142570525407791,
+          "probability_p99": 0.6176749467849731
+        }
+      },
+      "SwinUNETR": {
+        "FORCE": {
+          "patch_starts": [
+            160,
+            224,
+            32
+          ],
+          "patch_shape": [
+            64,
+            64,
+            64
+          ],
+          "top_logit_score": 1.9170607328414917,
+          "probability_mean": 0.08140518516302109,
+          "probability_p99": 0.544206976890564
+        },
+        "Delft": {
+          "patch_starts": [
+            160,
+            160,
+            32
+          ],
+          "patch_shape": [
+            64,
+            64,
+            64
+          ],
+          "top_logit_score": 2.4182374477386475,
+          "probability_mean": 0.09121319651603699,
+          "probability_p99": 0.6611539721488953
+        }
+      }
+    }
+  },
+  "figure": "runs\\cross_survey_mechanisms\\cross_survey_mechanism_attribution.png",
+  "seed": 20260702
+}

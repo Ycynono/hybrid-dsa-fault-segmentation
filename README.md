@@ -137,11 +137,12 @@ python -m fault_experiments.evaluate_coherence_baseline calibrate --output-dir r
 python -m fault_experiments.evaluate_coherence_baseline evaluate --output-dir runs/dip_steered_coherence_baseline --max-dip-shift 1
 python -m fault_experiments.analyze_probability_calibration
 python -m fault_experiments.evaluate_synthetic_ood_sensitivity
+python -m fault_experiments.analyze_cross_survey_mechanisms
 python -m fault_experiments.benchmark_model_inference --output results/efficiency/reproduced_inference_benchmark.json
 python -m fault_experiments.audit_evidence_hierarchy
 ```
 
-The synthetic sensitivity command uses identical seeds across 11 reference and perturbed profiles. The reference generator remains exactly compatible with the original float16 dataset. See [`docs/REPRODUCE_FIGURES.md`](docs/REPRODUCE_FIGURES.md) for figure commands and claim boundaries.
+The synthetic sensitivity command uses identical seeds across 11 reference and perturbed profiles. The cross-survey mechanism command computes deterministic sample-domain descriptors and fixed-patch 3D gradient-weighted attribution for FORCE and Delft; these outputs diagnose model sensitivity and are not fault-accuracy or causal-geology evidence. The reference generator remains exactly compatible with the original float16 dataset. See [`docs/REPRODUCE_FIGURES.md`](docs/REPRODUCE_FIGURES.md) for figure commands and claim boundaries.
 
 ## Expected results
 

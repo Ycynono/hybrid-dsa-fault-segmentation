@@ -30,6 +30,20 @@ Expected outputs:
 
 All 11 profiles reuse the same eight seeds. The profile changes include frequency, 90-degree phase, white and correlated noise, throw, curvature, depth-dip, fault-zone attenuation and lateral sampling.
 
+## Cross-survey mechanism diagnostics
+
+```bash
+python -m fault_experiments.analyze_cross_survey_mechanisms
+```
+
+Expected outputs:
+
+- `runs/cross_survey_mechanisms/survey_domain_descriptors.csv`
+- `runs/cross_survey_mechanisms/mechanism_diagnostics.json`
+- `runs/cross_survey_mechanisms/cross_survey_mechanism_attribution.png`
+
+The script uses deterministic sampled texture descriptors across Synthetic, F3, Thebe, FORCE and Delft, followed by positive 3D gradient-weighted attribution on fixed central 64-cube patches for Hybrid DSA and SwinUNETR. Frequency is normalized to Nyquist because all physical sample intervals are not verified. The lineation statistic is a texture proxy, and attribution identifies model sensitivity rather than fault accuracy or geological causality.
+
 ## Locally dip-steered coherence
 
 ```bash
